@@ -36,9 +36,9 @@ bindsym $mod+Shift+q kill
 bindsym $mod+d exec --no-startup-id dmenu_run
 
 # start rofi (dmenu replacement and more)
-bindsym $mod+p exec --no-startup-id "rofi -show drun -disable-history -matching prefix -no-tokenize -show-icons"
-bindsym $mod+Tab exec --no-startup-id "rofi -show window -show-icons"
-bindsym $mod+shift+p exec --no-startup-id "rofi -show run -sorting-method fzf"
+bindsym $mod+p exec --no-startup-id ~/.config/rofi/launchers/type-1/launcher-drun.sh
+bindsym $mod+Tab exec --no-startup-id ~/.config/rofi/launchers/type-1/launcher-window.sh
+bindsym $mod+shift+p exec --no-startup-id ~/.config/rofi/launchers/type-1/launcher-run.sh
 
 # change focus
 bindsym $mod+h focus left
@@ -212,14 +212,10 @@ include bar
 
 # SCREENSHOT
 ##  Screenshots in files
-bindsym Print exec --no-startup-id maim --format=png "/home/$USER/Pictures/Screenshots/screenshot-$(date -u +'%Y%m%d-%H%M%SZ')-all.png"
-bindsym $mod+Print exec --no-startup-id maim --format=png --window $(xdotool getactivewindow) "/home/$USER/Pictures/Screenshots/screenshot-$(date -u +'%Y%m%d-%H%M%SZ')-current.png"
-bindsym Shift+Print exec --no-startup-id maim --format=png --select "/home/$USER/Pictures/Screenshots/screenshot-$(date -u +'%Y%m%d-%H%M%SZ')-selected.png"
+bindsym Print exec --no-startup-id ~/.config/rofi/applets/bin/screenshot.sh
 
-## Screenshots in clipboards
-bindsym Ctrl+Print exec --no-startup-id maim --format=png | xclip -selection clipboard -t image/png
-bindsym Ctrl+$mod+Print exec --no-startup-id maim --format=png --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
-bindsym Ctrl+Shift+Print exec --no-startup-id maim --format=png --select | xclip -selection clipboard -t image/png
+# POWERMENU
+bindsym $mod+Pause exec --no-startup-id ~/.config/rofi/applets/bin/powermenu.sh
 
 # Startup applilcation
 # Start XDG autostart .desktop files using dex. See also
@@ -344,7 +340,6 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id $volumepath/volume -n -t $stat
 bindsym XF86AudioLowerVolume exec --no-startup-id $volumepath/volume -n -t $statuscmd -u $statussig down $volumestep
 bindsym XF86AudioMute        exec --no-startup-id $volumepath/volume -n -t $statuscmd -u $statussig mute
 
-
 #bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
 #bindsym XF86AudioPause exec playerctl pause
 #bindsym XF86AudioNext exec playerctl next
@@ -363,22 +358,6 @@ bindsym XF86AudioPrev exec --no-startup-id playerctl -p spotify previous
 #bindsym $mod+Pause exec --no-startup-id i3lock --image=/home/kenneth/Pictures/Wallpaper/lockscreen/tb-blur.png
 
 set $Locker i3lock && sleep 1
-
-set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
-mode "$mode_system" {
-    bindsym l exec --no-startup-id $Locker, mode "default"
-    bindsym e exec --no-startup-id i3-msg exit, mode "default" 
-    bindsym s exec --no-startup-id $Locker && systemctl suspend, mode "default"
-    bindsym h exec --no-startup-id $Locker && systemctl hibernate, mode "default"
-    bindsym r exec --no-startup-id systemctl reboot, mode "default"
-    bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"  
-
-    # back to normal: Enter or Escape
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-
-bindsym $mod+Pause mode "$mode_system"
 
 # Assign specific workspaces to each monitor on startup
 exec --no-startup-id i3-msg "workspace 1; move workspace to output $pm"
