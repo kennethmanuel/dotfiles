@@ -4,6 +4,7 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # Autotile
 exec_always --no-startup-id autotiling
+exec_always --no-startup-id picom -b
 
 exec --no-startup-id dbus-update-activation-environment --all
 exec --no-startup-id gnome-keyring-daemon --start --components=secrets

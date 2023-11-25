@@ -27,9 +27,10 @@ configuration {
     border-colour:               var(selected);
     handle-colour:               var(selected);
     background-colour:           var(background);
+    background-colour:           var(background);
     foreground-colour:           var(foreground);
     alternate-background:        var(background-alt);
-    normal-background:           var(background);
+    normal-background:           #1E1D2F00;
     normal-foreground:           var(foreground);
     urgent-background:           var(urgent);
     urgent-foreground:           var(background);
@@ -222,8 +223,8 @@ element selected.active {
     text-color:                  var(selected-active-foreground);
 }
 element alternate.normal {
-    background-color:            var(alternate-normal-background);
-    text-color:                  var(alternate-normal-foreground);
+    background-color:            var(normal-background);
+    text-color:                  var(normal-foreground);
 }
 element alternate.urgent {
     background-color:            var(alternate-urgent-background);
