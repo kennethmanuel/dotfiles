@@ -1,6 +1,6 @@
 include colorscheme
 
-# exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # Autotile
 exec_always --no-startup-id autotiling
@@ -14,7 +14,7 @@ set $mod mod1
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 font pango:monospace 11
-font pango:JetBrainsMono NF 10
+font pango:JetBrainsMono NF 9
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -173,6 +173,7 @@ assign [class="Spotify"] $ws12
 assign [class="steam"] $ws14
 assign [class="steam_app_1868140"] $ws10
 assign [class="DAVE_THE_DIVER"] $ws10
+assign [class="Brave-browser"] $ws1
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -208,7 +209,7 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-include bar
+# include bar
 
 # SCREENSHOT
 ##  Screenshots in files
@@ -216,6 +217,9 @@ bindsym Print exec --no-startup-id ~/.config/rofi/applets/bin/screenshot.sh
 
 # POWERMENU
 bindsym $mod+Pause exec --no-startup-id ~/.config/rofi/applets/bin/powermenu.sh
+
+# QUICKBROWSE
+bindsym $mod+apostrophe exec --no-startup-id ~/.config/rofi/applets/bin/quicklinks.sh
 
 # Startup applilcation
 # Start XDG autostart .desktop files using dex. See also
