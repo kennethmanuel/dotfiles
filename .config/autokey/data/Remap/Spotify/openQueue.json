@@ -1,9 +1,11 @@
 {
     "type": "script",
-    "description": "nextTab",
+    "description": "openQueue",
     "store": {},
-    "modes": [],
-    "usageCount": 13,
+    "modes": [
+        3
+    ],
+    "usageCount": 0,
     "prompt": false,
     "omitTrigger": false,
     "showInTrayMenu": false,
@@ -16,8 +18,10 @@
         "wordChars": "[\\w]"
     },
     "hotkey": {
-        "modifiers": [],
-        "hotKey": null
+        "modifiers": [
+            "<ctrl>"
+        ],
+        "hotKey": "1"
     },
     "filter": {
         "regex": null,

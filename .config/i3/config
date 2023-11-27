@@ -170,11 +170,9 @@ bindsym $mod+Shift+backslash move container to workspace number $ws14
 assign [class="obsidian"] $ws0
 assign [class="dota2"] $ws10
 assign [class="osu!"] $ws10
-assign [class="discord"] $ws11
-assign [class="Spotify"] $ws12
+assign [class="discord"] $ws8
+assign [class="Spotify"] $ws8
 assign [class="steam"] $ws14
-assign [class="steam_app_1868140"] $ws10
-assign [class="DAVE_THE_DIVER"] $ws10
 assign [class="Brave-browser"] $ws1
 
 # reload the configuration file

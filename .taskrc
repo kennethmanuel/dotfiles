@@ -42,3 +42,4 @@ data.location=/home/kenneth/.task
 news.version=2.6.0
 
 editor = nvim
+default.project=personal

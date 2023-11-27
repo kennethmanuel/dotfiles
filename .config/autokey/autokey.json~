@@ -32,9 +32,10 @@
             "2",
             "3",
             "1",
-            "1:1"
+            "1:1",
+            "1:0"
         ],
-        "pathLastOpen": "1:0:3"
+        "pathLastOpen": "1:0:8"
     },
     "folders": [],
     "toggleServiceHotkey": {

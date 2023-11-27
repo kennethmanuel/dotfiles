@@ -2,9 +2,7 @@
     "type": "script",
     "description": "prevTab",
     "store": {},
-    "modes": [
-        3
-    ],
+    "modes": [],
     "usageCount": 10,
     "prompt": false,
     "omitTrigger": false,
@@ -18,10 +16,8 @@
         "wordChars": "[\\w]"
     },
     "hotkey": {
-        "modifiers": [
-            "<ctrl>"
-        ],
-        "hotKey": "h"
+        "modifiers": [],
+        "hotKey": null
     },
     "filter": {
         "regex": null,
