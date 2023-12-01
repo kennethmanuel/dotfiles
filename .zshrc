@@ -22,6 +22,10 @@ alias code='vscodium'
 alias ll='ls -al'
 alias lg='lazygit'
 
+# prime tmux sessionizer
+export PATH=$PATH:~/.config/tmux/bin
+bindkey -s ^f "tmux-sessionizer\n"
+
 # Prompt
 # Require starship
 eval "$(starship init zsh)"
