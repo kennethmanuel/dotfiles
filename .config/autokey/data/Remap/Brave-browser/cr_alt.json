@@ -1,9 +1,11 @@
 {
     "type": "script",
-    "description": "focusAddressBar",
+    "description": "cr_alt",
     "store": {},
-    "modes": [],
-    "usageCount": 44,
+    "modes": [
+        3
+    ],
+    "usageCount": 0,
     "prompt": false,
     "omitTrigger": false,
     "showInTrayMenu": false,
@@ -16,8 +18,10 @@
         "wordChars": "[\\w]"
     },
     "hotkey": {
-        "modifiers": [],
-        "hotKey": null
+        "modifiers": [
+            "<ctrl>"
+        ],
+        "hotKey": " "
     },
     "filter": {
         "regex": null,

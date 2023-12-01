@@ -43,3 +43,4 @@ news.version=2.6.0
 
 editor = nvim
 default.project=personal
+urgency.active.coefficient=99.0

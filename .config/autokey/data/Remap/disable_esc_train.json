@@ -1,10 +1,10 @@
 {
     "type": "script",
-    "description": "focusAddressBar",
+    "description": "disable_esc_train",
     "store": {},
     "modes": [],
-    "usageCount": 44,
-    "prompt": false,
+    "usageCount": 103,
+    "prompt": true,
     "omitTrigger": false,
     "showInTrayMenu": false,
     "abbreviation": {

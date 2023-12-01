@@ -173,7 +173,7 @@ assign [class="osu!"] $ws10
 assign [class="discord"] $ws8
 assign [class="Spotify"] $ws8
 assign [class="steam"] $ws14
-assign [class="Brave-browser"] $ws1
+# assign [class="Brave-browser"] $ws1
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
