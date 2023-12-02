@@ -1,10 +1,10 @@
 {
     "type": "script",
-    "description": "disable_esc_train",
+    "description": "nextTab",
     "store": {},
     "modes": [],
-    "usageCount": 103,
-    "prompt": true,
+    "usageCount": 13,
+    "prompt": false,
     "omitTrigger": false,
     "showInTrayMenu": false,
     "abbreviation": {

@@ -1,15 +1,23 @@
 include colorscheme
 
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+# Execute apps with i3wm 
+# Should consider uxing XDG Autostart
+# https://wiki.archlinux.org/title/XDG_Autostart
 exec --no-startup-id autokey-gtk
-
-# Autotile
-exec_always --no-startup-id autotiling
-exec_always --no-startup-id picom -b
-
 exec --no-startup-id dbus-update-activation-environment --all
 exec --no-startup-id gnome-keyring-daemon --start --components=secrets
 exec --no-startup-id kdeconnect-indicator
+exec --no-startup-id pasystray
+exec --no-startup-id nitrogen --restore
+exec --no-startup-id nm-applet
+exec --no-startup-id polychromatic-tray-applet
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec --no-startup-id discord
+exec --no-startup-id spotify
+exec --no-startup-id steam
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec_always --no-startup-id autotiling
+exec_always --no-startup-id picom -b
 
 set $mod mod1
 
@@ -20,65 +28,45 @@ font pango:JetBrainsMono NF 9
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-#font pango:DejaVu Sans Mono 8
+font pango:DejaVu Sans Mono 8
 
 # Use Mouse+$mod to drag floating windows to their wanted position
+# Left click and drag to move floating window
+# Right click and drag to resize window
 floating_modifier $mod
 
-# start a terminal
-bindsym $mod+Return exec --no-startup-id i3-sensible-terminal
-
-# file manager
-bindsym $mod+Shift+Return exec thunar
-
-# kill focused window
 bindsym $mod+Shift+q kill
+bindsym $mod+f fullscreen toggle
 
-# start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id dmenu_run
-
-# start rofi (dmenu replacement and more)
-bindsym $mod+p exec --no-startup-id ~/.config/rofi/launchers/type-1/launcher-drun.sh
-bindsym $mod+Tab exec --no-startup-id ~/.config/rofi/launchers/type-1/launcher-window.sh
-bindsym $mod+shift+p exec --no-startup-id ~/.config/rofi/launchers/type-1/launcher-run.sh
-
-# change focus
+# Moving focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
-
-# alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
-# move focused window
+# Moving window
 bindsym $mod+Shift+h move left
 bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
-
-# alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
-# split in horizontal orientation
-bindsym $mod+z split h
+# App launcher
+# bindsym $mod+Return exec --no-startup-id i3-sensible-terminal
+bindsym $mod+d exec --no-startup-id dmenu_run
+bindsym $mod+Return exec --no-startup-id alacritty
+bindsym $mod+Shift+Return exec thunar
 
-# split in vertical orientation
-bindsym $mod+v split v
-
-# enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen toggle
-
-# change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+# Adjust next window split
+bindsym $mod+Shift+backslash split h
+bindsym $mod+minus split v
 
 # toggle tiling / floating
 bindsym $mod+Shift+slash floating toggle
@@ -86,20 +74,14 @@ bindsym $mod+Shift+slash floating toggle
 # change focus between tiling / floating windows
 bindsym $mod+slash focus mode_toggle
 
-# focus the parent container
-bindsym $mod+a focus parent
-
-# focus the child container
-#bindsym $mod+d focus child
-
 # Monitor thing
-# primary, secondary monitor
+# primary, secondary
 set $pm DP-0
 set $sm HDMI-0
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws0 "0"
+# set $ws0 "0"
 set $ws1 "1"
 set $ws2 "2"
 set $ws3 "3"
@@ -109,14 +91,8 @@ set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
-set $ws10 "10"
-set $ws11 "11"
-set $ws12 "12"
-set $ws13 "13"
-set $ws14 "14"
 
 # Assign workspaces to monitors
-workspace 0 output $pm
 workspace 1 output $pm
 workspace 2 output $pm
 workspace 3 output $pm
@@ -126,14 +102,9 @@ workspace 6 output $pm
 workspace 7 output $pm
 workspace 8 output $pm
 workspace 9 output $pm
-workspace 10 output $pm
-workspace 11 output $sm
-workspace 12 output $sm
-workspace 13 output $sm
-workspace 14 output $pm
 
 # switch to workspace
-bindsym $mod+grave workspace number $ws0
+# bindsym $mod+grave workspace number $ws0
 bindsym $mod+1 workspace number $ws1
 bindsym $mod+2 workspace number $ws2
 bindsym $mod+3 workspace number $ws3
@@ -143,14 +114,9 @@ bindsym $mod+6 workspace number $ws6
 bindsym $mod+7 workspace number $ws7
 bindsym $mod+8 workspace number $ws8
 bindsym $mod+9 workspace number $ws9
-bindsym $mod+0 workspace number $ws10
-bindsym $mod+minus workspace number $ws11
-bindsym $mod+plus workspace number $ws12
-bindsym $mod+BackSpace workspace number $ws13
-bindsym $mod+backslash workspace number $ws14
 
 # move focused container to workspace
-bindsym $mod+Shift+grave move container to workspace number $ws0
+# bindsym $mod+Shift+grave move container to workspace number $ws0
 bindsym $mod+Shift+1 move container to workspace number $ws1
 bindsym $mod+Shift+2 move container to workspace number $ws2
 bindsym $mod+Shift+3 move container to workspace number $ws3
@@ -160,48 +126,31 @@ bindsym $mod+Shift+6 move container to workspace number $ws6
 bindsym $mod+Shift+7 move container to workspace number $ws7
 bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
-bindsym $mod+Shift+0 move container to workspace number $ws10
-bindsym $mod+Shift+minus move container to workspace number $ws11
-bindsym $mod+Shift+plus move container to workspace number $ws12
-bindsym $mod+Shift+BackSpace move container to workspace number $ws13
-bindsym $mod+Shift+backslash move container to workspace number $ws14
 
 # workspace binding
-assign [class="obsidian"] $ws0
-assign [class="dota2"] $ws10
-assign [class="osu!"] $ws10
+assign [class="dota2"] $ws7
+assign [class="osu!"] $ws7
+assign [class="steam"] $ws8
 assign [class="discord"] $ws8
 assign [class="Spotify"] $ws8
-assign [class="steam"] $ws14
-# assign [class="Brave-browser"] $ws1
 
-# reload the configuration file
+# Reload and restart config files
 bindsym $mod+Shift+c reload
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
-# exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
-# resize window (you can also use the mouse for that)
+# resize window (can also use floating_modifier)
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
-
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
         bindsym h resize shrink width 10 px or 10 ppt
         bindsym j resize grow height 10 px or 10 ppt
         bindsym k resize shrink height 10 px or 10 ppt
         bindsym l resize grow width 10 px or 10 ppt
 
-        # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
         bindsym Down resize grow height 10 px or 10 ppt
         bindsym Up resize shrink height 10 px or 10 ppt
         bindsym Right resize grow width 10 px or 10 ppt
 
-        # back to normal: Enter or Escape or $mod+r
         bindsym Return mode "default"
         bindsym Escape mode "default"
         bindsym $mod+r mode "default"
@@ -209,135 +158,40 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# include bar
-
-# SCREENSHOT
-##  Screenshots in files
+# Rofi custom launcher
+bindsym $mod+p exec --no-startup-id ~/.config/rofi/launchers/type-1/launcher-drun.sh
+bindsym $mod+Tab exec --no-startup-id ~/.config/rofi/launchers/type-1/launcher-window.sh
+bindsym $mod+shift+p exec --no-startup-id ~/.config/rofi/launchers/type-1/launcher-run.sh
 bindsym Print exec --no-startup-id ~/.config/rofi/applets/bin/screenshot.sh
-
-# POWERMENU
 bindsym $mod+Pause exec --no-startup-id ~/.config/rofi/applets/bin/powermenu.sh
-
-# QUICKBROWSE
 bindsym $mod+apostrophe exec --no-startup-id ~/.config/rofi/applets/bin/quicklinks.sh
 
-# Startup applilcation
-# Start XDG autostart .desktop files using dex. See also
-# https://wiki.archlinux.org/index.php/XDG_Autostart
-exec --no-startup-id dex --autostart --environment i3
-
-# Pulse audio system tray
-exec --no-startup-id pasystray
-
-# Wallpaper
-exec --no-startup-id nitrogen --restore
-#exec --no-startup-id feh --bg-fill --randomize ~/Pictures/Wallpaper/active/*
-
-# NetworkManager is the most popular way to manage wireless networks on Linux,
-# and nm-applet is a desktop environment-independent system tray GUI for it.
-exec --no-startup-id nm-applet
-
-exec --no-startup-id polychromatic-tray-applet
-
-# Other shit
-exec --no-startup-id discord
-exec --no-startup-id spotify
-exec --no-startup-id obsidian
-#exec --no-startup-id QOwnNotes
-exec --no-startup-id steam
-# Review the lines below and append to ~/.config/i3/config
-
-# Command for the status line
-#   ie: i3blocks, i3status
-set $statuscmd i3blocks
-
-# Signal used to update the status line
-#   i3blocks uses SIGRTMIN+10 by default
-#   i3status uses SIGUSR1 by default
-set $statussig SIGRTMIN+10
-
+# i3wm config
 bindsym $mod+comma exec --no-startup-id alacritty -e nvim ~/.config/i3/config
-bindsym $mod+period exec --no-startup-id alacritty -e nvim ~/.config/i3blocks/config
-#bindsym $mod+b exec --no-startup-id firefox
-bindsym $mod+b exec --no-startup-id brave
 
-
-# done task (Custom script)
-bindsym $mod+t exec --no-startup-id ~/.config/i3blocks/taskstatus/ctdone ; exec pkill -SIGRTMIN+10 i3blocks
-
-# DOTA
+# Passing alt mod keys to program
 mode  "Passthrough Mode - Press Alt+Escape to exit" {
-        bindsym $mod+Escape mode "default"
 	bindsym XF86AudioPlay exec --no-startup-id playerctl -p spotify play-pause
 	bindsym XF86AudioPause exec --no-startup-id playerctl -p spotify pause
 	bindsym XF86AudioNext exec --no-startup-id playerctl -p spotify next
 	bindsym XF86AudioPrev exec --no-startup-id playerctl -p spotify previous
 
-	## Volume control
-
-	# Path to volume control, without trailing slash
+  # Media keys
 	set $volumepath ~/i3-volume
-
-	# Command for the status line
-	#   ie: i3blocks, i3status
-	set $statuscmd i3status
-
-	# Signal used to update the status line
-	#   i3blocks uses SIGRTMIN+10 by default
-	#   i3status uses SIGUSR1 by default
-	set $statussig SIGUSR1
-
-	# Amount to increase/decrease volume as a percentage
 	set $volumestep 5
 
-	# pulseaudio-utils settings
-	#
-	# Symbolic name for sink (numeric index not supported)
-	#   Recommended: comment out this setting and omit the -s option to use default sink
-	#   List sink names: pacmd list-sinks | awk -F "[<>]" '/^\s+name: <.*>/{print $2}'
-	#set $sinkname alsa_output.pci-0000_00_1b.0.analog-stereo
-
-	# Using pulseaudio-utils (append "-s $sinkname" without quotes to override default sink)
 	bindsym XF86AudioRaiseVolume exec --no-startup-id $volumepath/volume -n -t $statuscmd -u $statussig up $volumestep
 	bindsym XF86AudioLowerVolume exec --no-startup-id $volumepath/volume -n -t $statuscmd -u $statussig down $volumestep
 	bindsym XF86AudioMute        exec --no-startup-id $volumepath/volume -n -t $statuscmd -u $statussig mute
 
-	bindsym $mod+9 workspace number $ws9
-	bindsym $mod+0 workspace number $ws10
-	bindsym $mod+minus workspace number $ws11
-	bindsym $mod+plus workspace number $ws12
-
+  bindsym $mod+Escape mode "default"
 }
 bindsym $mod+Escape mode "Passthrough Mode - Press Alt+Escape to exit"
 
-# Gnome polkit
-exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-
-# Review the lines below and append to ~/.config/i3/config
-
-## Volume control
-
-# Path to volume control, without trailing slash
+# Media Keys
+# $volumestep Amount to increase/decrease volume as a percentage
 set $volumepath ~/i3-volume
-
-# Command for the status line
-#   ie: i3blocks, i3status
-set $statuscmd i3status
-
-# Signal used to update the status line
-#   i3blocks uses SIGRTMIN+10 by default
-#   i3status uses SIGUSR1 by default
-set $statussig SIGUSR1
-
-# Amount to increase/decrease volume as a percentage
 set $volumestep 5
-
-# pulseaudio-utils settings
-#
-# Symbolic name for sink (numeric index not supported)
-#   Recommended: comment out this setting and omit the -s option to use default sink
-#   List sink names: pacmd list-sinks | awk -F "[<>]" '/^\s+name: <.*>/{print $2}'
-#set $sinkname alsa_output.pci-0000_00_1b.0.analog-stereo
 
 # Using pulseaudio-utils (append "-s $sinkname" without quotes to override default sink)
 bindsym XF86AudioRaiseVolume exec --no-startup-id $volumepath/volume -n -t $statuscmd -u $statussig up $volumestep
@@ -354,14 +208,6 @@ bindsym XF86AudioPlay exec --no-startup-id playerctl -p spotify play-pause
 bindsym XF86AudioPause exec --no-startup-id playerctl -p spotify pause
 bindsym XF86AudioNext exec --no-startup-id playerctl -p spotify next
 bindsym XF86AudioPrev exec --no-startup-id playerctl -p spotify previous
-
-#gaps inner 10
-#gaps outer 10
-
-# Lock screen
-#bindsym $mod+Pause exec --no-startup-id i3lock --image=/home/kenneth/Pictures/Wallpaper/lockscreen/tb-blur.png
-
-set $Locker i3lock && sleep 1
 
 # Assign specific workspaces to each monitor on startup
 exec --no-startup-id i3-msg "workspace 1; move workspace to output $pm"
