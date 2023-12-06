@@ -14,12 +14,12 @@ compinit
 # Aliases
 alias ls='ls --color=auto'
 alias la='ls -a'
+alias ll='ls -al'
 alias grep='grep --color=auto'
 alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'
 alias sudo='sudo '
 alias vim='nvim'
 alias code='vscodium'
-alias ll='ls -al'
 alias lg='lazygit'
 
 # prime tmux sessionizer
@@ -29,3 +29,6 @@ bindkey -s ^f "tmux-sessionizer\n"
 # Prompt
 # Require starship
 eval "$(starship init zsh)"
+
+# Use neovim as manpager
+export MANPAGER='nvim +Man!'

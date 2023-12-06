@@ -1,9 +1,9 @@
 {
     "type": "script",
-    "description": "newTab",
+    "description": "vomnibarPreviousItem",
     "store": {},
     "modes": [],
-    "usageCount": 10,
+    "usageCount": 0,
     "prompt": false,
     "omitTrigger": false,
     "showInTrayMenu": false,

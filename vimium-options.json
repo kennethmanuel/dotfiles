@@ -1,5 +1,5 @@
 {
-  "keyMappings": "map H previousTab\nmap L nextTab\nmap , goBack\nmap . goForward\nunmap T\nmap t Vomnibar.activateTabSelection\nmap <c-p> togglePinTab\nmap ' Marks.activateGotoMode",
+  "keyMappings": "map H previousTab\nmap L nextTab\nmap , goBack\nmap . goForward\nunmap T\nmap t Vomnibar.activateTabSelection\nmap ' Marks.activateGotoMode",
   "regexFindMode": true,
   "searchUrl": "https://search.brave.com/search?q=",
   "settingsVersion": "2.0.5"

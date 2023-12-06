@@ -12,14 +12,22 @@ exec --no-startup-id nitrogen --restore
 exec --no-startup-id nm-applet
 exec --no-startup-id polychromatic-tray-applet
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id discord
+# exec --no-startup-id discord
 exec --no-startup-id spotify
-exec --no-startup-id steam
+# exec --no-startup-id steam
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-exec_always --no-startup-id autotiling
-exec_always --no-startup-id picom -b
+# exec_always --no-startup-id picom -b
 
+# Alt Key
 set $mod mod1
+
+hide_edge_borders smart
+
+bindsym $mod+s layout stacking
+bindsym $mod+t layout tabbed
+bindsym $mod+e layout toggle split
+
+bindsym $mod+a focus parent
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -65,7 +73,7 @@ bindsym $mod+Return exec --no-startup-id alacritty
 bindsym $mod+Shift+Return exec thunar
 
 # Adjust next window split
-bindsym $mod+Shift+backslash split h
+bindsym $mod+Shift+bar split h
 bindsym $mod+minus split v
 
 # toggle tiling / floating
@@ -81,7 +89,6 @@ set $sm HDMI-0
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-# set $ws0 "0"
 set $ws1 "1"
 set $ws2 "2"
 set $ws3 "3"
@@ -91,6 +98,7 @@ set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
+set $ws10 "10"
 
 # Assign workspaces to monitors
 workspace 1 output $pm
@@ -102,6 +110,7 @@ workspace 6 output $pm
 workspace 7 output $pm
 workspace 8 output $pm
 workspace 9 output $pm
+workspace 10 output $sm
 
 # switch to workspace
 # bindsym $mod+grave workspace number $ws0
@@ -114,6 +123,7 @@ bindsym $mod+6 workspace number $ws6
 bindsym $mod+7 workspace number $ws7
 bindsym $mod+8 workspace number $ws8
 bindsym $mod+9 workspace number $ws9
+bindsym $mod+0 workspace number $ws10
 
 # move focused container to workspace
 # bindsym $mod+Shift+grave move container to workspace number $ws0
@@ -126,11 +136,12 @@ bindsym $mod+Shift+6 move container to workspace number $ws6
 bindsym $mod+Shift+7 move container to workspace number $ws7
 bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
+bindsym $mod+Shift+0 move container to workspace number $ws10
 
-# workspace binding
+# Workspace binding
 assign [class="dota2"] $ws7
 assign [class="osu!"] $ws7
-assign [class="steam"] $ws8
+assign [class="steam"] $ws6
 assign [class="discord"] $ws8
 assign [class="Spotify"] $ws8
 
@@ -139,7 +150,7 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
-# resize window (can also use floating_modifier)
+# Resize window (can also use floating_modifier)
 mode "resize" {
         bindsym h resize shrink width 10 px or 10 ppt
         bindsym j resize grow height 10 px or 10 ppt
@@ -166,8 +177,8 @@ bindsym Print exec --no-startup-id ~/.config/rofi/applets/bin/screenshot.sh
 bindsym $mod+Pause exec --no-startup-id ~/.config/rofi/applets/bin/powermenu.sh
 bindsym $mod+apostrophe exec --no-startup-id ~/.config/rofi/applets/bin/quicklinks.sh
 
-# i3wm config
-bindsym $mod+comma exec --no-startup-id alacritty -e nvim ~/.config/i3/config
+# Dotfiles
+bindsym $mod+comma exec --no-startup-id alacritty --working-directory=$HOME/.dotfiles -e nvim
 
 # Passing alt mod keys to program
 mode  "Passthrough Mode - Press Alt+Escape to exit" {
@@ -211,6 +222,6 @@ bindsym XF86AudioPrev exec --no-startup-id playerctl -p spotify previous
 
 # Assign specific workspaces to each monitor on startup
 exec --no-startup-id i3-msg "workspace 1; move workspace to output $pm"
-exec --no-startup-id i3-msg "workspace 9; move workspace to output $sm"
+exec --no-startup-id i3-msg "workspace 10; move workspace to output $sm"
 
 # vim:ft=i3config:
