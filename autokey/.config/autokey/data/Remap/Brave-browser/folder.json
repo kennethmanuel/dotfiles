@@ -1,0 +1,23 @@
+{
+    "type": "folder",
+    "title": "Brave-browser",
+    "modes": [],
+    "usageCount": 365,
+    "showInTrayMenu": false,
+    "abbreviation": {
+        "abbreviations": [],
+        "backspace": true,
+        "ignoreCase": false,
+        "immediate": false,
+        "triggerInside": false,
+        "wordChars": "[\\w]"
+    },
+    "hotkey": {
+        "modifiers": [],
+        "hotKey": null
+    },
+    "filter": {
+        "regex": "brave-browser.Brave-browser",
+        "isRecursive": true
+    }
+}

@@ -1,0 +1,23 @@
+{
+    "type": "folder",
+    "title": "Libreoffice Calc",
+    "modes": [],
+    "usageCount": 24,
+    "showInTrayMenu": false,
+    "abbreviation": {
+        "abbreviations": [],
+        "backspace": true,
+        "ignoreCase": false,
+        "immediate": false,
+        "triggerInside": false,
+        "wordChars": "[\\w]"
+    },
+    "hotkey": {
+        "modifiers": [],
+        "hotKey": null
+    },
+    "filter": {
+        "regex": "libreoffice.libreoffice-calc",
+        "isRecursive": true
+    }
+}
