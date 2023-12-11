@@ -68,7 +68,7 @@ bindsym $mod+Shift+Right move right
 
 # App launcher
 # bindsym $mod+Return exec --no-startup-id i3-sensible-terminal
-bindsym $mod+d exec --no-startup-id dmenu_run
+# bindsym $mod+d exec --no-startup-id dmenu_run
 bindsym $mod+Return exec --no-startup-id alacritty
 bindsym $mod+Shift+Return exec thunar
 
@@ -172,14 +172,15 @@ bindsym $mod+r mode "resize"
 # Rofi custom launcher
 bindsym $mod+space exec --no-startup-id ~/.config/rofi/launchers/type-1/launcher-drun.sh
 bindsym $mod+Tab exec --no-startup-id ~/.config/rofi/launchers/type-1/launcher-window.sh
-bindsym $mod+p exec --no-startup-id ~/.config/rofi/launchers/type-1/launcher-run.sh
+bindsym $mod+d exec --no-startup-id ~/.config/rofi/launchers/type-1/launcher-run.sh
+bindsym $mod+p exec --no-startup-id ~/.config/rofi/bin/common-file-launcher
 bindsym Print exec --no-startup-id ~/.config/rofi/applets/bin/screenshot.sh
 bindsym $mod+Pause exec --no-startup-id ~/.config/rofi/applets/bin/powermenu.sh
 bindsym $mod+apostrophe exec --no-startup-id ~/.config/rofi/applets/bin/quicklinks.sh
 
 # Dotfiles
-# bindsym $mod+comma exec --no-startup-id alacritty --working-directory=$HOME/.dotfiles -e nvim
-bindsym $mod+comma exec --no-startup-id alacritty --working-directory=$HOME/.dotfiles -e tmux new-session -s dotfiles 'nvim'
+bindsym $mod+comma exec --no-startup-id alacritty --working-directory=$HOME/.dotfiles -e nvim
+#bindsym $mod+comma exec --no-startup-id alacritty --working-directory=$HOME/.dotfiles -e tmux new-session -s dotfiles 'nvim'
 
 # Passing alt mod keys to program
 mode "Passthrough Mode - Press Alt+Escape to exit" {

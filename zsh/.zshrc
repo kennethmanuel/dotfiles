@@ -12,6 +12,7 @@ compinit
 # End of lines added by compinstall
 
 # Aliases
+alias o='xdg-open'
 alias ls='ls --color=auto'
 alias la='ls -a'
 alias ll='ls -al'
