@@ -24,7 +24,7 @@ set $mod mod1
 hide_edge_borders smart
 
 bindsym $mod+s layout stacking
-bindsym $mod+t layout tabbed
+bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
 bindsym $mod+a focus parent
@@ -177,6 +177,7 @@ bindsym $mod+p exec --no-startup-id ~/.config/rofi/bin/common-file-launcher
 bindsym Print exec --no-startup-id ~/.config/rofi/applets/bin/screenshot.sh
 bindsym $mod+Pause exec --no-startup-id ~/.config/rofi/applets/bin/powermenu.sh
 bindsym $mod+apostrophe exec --no-startup-id ~/.config/rofi/applets/bin/quicklinks.sh
+bindsym $mod+t exec --no-startup-id ~/.config/rofi/bin/taskw-starter
 
 # Dotfiles
 bindsym $mod+comma exec --no-startup-id alacritty --working-directory=$HOME/.dotfiles -e nvim
@@ -197,9 +198,9 @@ mode "Passthrough Mode - Press Alt+Escape to exit" {
 	bindsym XF86AudioLowerVolume exec --no-startup-id $volumepath/volume -n -t $statuscmd -u $statussig down $volumestep
 	bindsym XF86AudioMute        exec --no-startup-id $volumepath/volume -n -t $statuscmd -u $statussig mute
 
-  bindsym $mod+Escape mode "default"; exec --no-startup-id xmodmap $HOME/.Xmodmap
+  bindsym $mod+Escape mode "default"
 }
-bindsym $mod+Escape mode "Passthrough Mode - Press Alt+Escape to exit"; exec --no-startup-id setxkbmap
+bindsym $mod+Escape mode "Passthrough Mode - Press Alt+Escape to exit"
 
 # Media Keys
 # $volumestep Amount to increase/decrease volume as a percentage

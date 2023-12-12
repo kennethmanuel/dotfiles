@@ -1,0 +1,27 @@
+#!/bin/bash
+# This script is a rofi launcher to start a task from taskwarrior
+# The script stop previous started that comes from /tmp/tw_polybar_id
+# then show a rofi with a list that based on taskwarrior next report.
+# Task that is selected from the selector will be started
+# otherwise it will be created and started
+
+tasks=$(task rc.defaultwidth:0 rc.verbose: rc.report.next.columns:id,description rc.report.next.labels:id,desc limit: next)
+
+selected=$(echo "$tasks" | rofi -dmenu -theme '.config/rofi/launchers/type-1/style-6.rasi')
+
+if [[ -z $selected ]]; then
+	exit 0
+fi
+
+if echo "$tasks" | grep -q "$selected"; then
+	task "$(cat /tmp/tw_polybar_id)" stop
+	selected_id=$(echo "$selected" | awk '{print $1}')
+	task $selected_id start
+	echo "Previous task have been stopped. Starting task $selected"
+else
+	#TODO: create selected task and start it
+	task "$(cat /tmp/tw_polybar_id)" stop
+	created_task_id=$(task add "$selected" | grep -oP '(?<=Created task )\d+')
+	task $created_task_id start
+	echo "Previous task have been stopped. Creating new task $selected"
+fi

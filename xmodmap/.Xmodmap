@@ -13,4 +13,4 @@ keycode 66 = Alt_L
 
 ! Keycode 64 is 'alt' the real alt key in my keyboard 
 ! disabling for adapting capslock as alt key
-keycode 64 = NoSymbol
+! keycode 64 = NoSymbol
