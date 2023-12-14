@@ -172,11 +172,11 @@ bindsym $mod+r mode "resize"
 # Rofi custom launcher
 bindsym $mod+space exec --no-startup-id ~/.config/rofi/launchers/type-1/launcher-drun.sh
 bindsym $mod+Tab exec --no-startup-id ~/.config/rofi/launchers/type-1/launcher-window.sh
-bindsym $mod+d exec --no-startup-id ~/.config/rofi/launchers/type-1/launcher-run.sh
+bindsym $mod+semicolon exec --no-startup-id ~/.config/rofi/launchers/type-1/launcher-run.sh
 bindsym $mod+p exec --no-startup-id ~/.config/rofi/bin/common-file-launcher
 bindsym Print exec --no-startup-id ~/.config/rofi/applets/bin/screenshot.sh
 bindsym $mod+Pause exec --no-startup-id ~/.config/rofi/applets/bin/powermenu.sh
-bindsym $mod+apostrophe exec --no-startup-id ~/.config/rofi/applets/bin/quicklinks.sh
+# bindsym $mod+apostrophe exec --no-startup-id ~/.config/rofi/applets/bin/quicklinks.sh
 bindsym $mod+t exec --no-startup-id ~/.config/rofi/bin/taskw-starter
 
 # Dotfiles

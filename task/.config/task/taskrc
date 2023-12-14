@@ -1,7 +1,7 @@
 data.location=~/.local/share/task
 hooks.location=~/.config/task/hooks
 
-urgency.active.coefficient=99.0
+
 urgency.user.tag.next.coefficient=15.0 # +next tag
 urgency.due.coefficient=12.0 # overdue or near due date
 urgency.blocking.coefficient=8.0 # blocking other tasks
@@ -25,6 +25,16 @@ urgency.user.project.sideproj.coefficient=1.5
 urgency.user.project.config.coefficient=1.1
 urgency.user.project.personal.coefficient=1.0
 
+# Workflow: I only have 1 active task at all time and previously 
+# started task that has been stopped will have their urgency massively
+# boosted.
+#
+# TODO: create hook to stop all other task when a task is started
+# TODO: create a hook to mark task with +starte tag when previously 
+# started task is stopped.
+# check https://gist.github.com/linuxcaffe/60a773e359d46090d2da78ca7198f709
+urgency.active.coefficient=100.0 # Started should be always in top
+urgency.user.tag.started.coefficient=50.0 # 
 
 editor=nvim
 default.project=personal

@@ -19,9 +19,9 @@
     },
     "hotkey": {
         "modifiers": [
-            "<super>"
+            "<ctrl>"
         ],
-        "hotKey": "."
+        "hotKey": "i"
     },
     "filter": {
         "regex": null,

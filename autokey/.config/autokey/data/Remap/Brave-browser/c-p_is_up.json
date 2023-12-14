@@ -1,6 +1,6 @@
 {
     "type": "script",
-    "description": "vomnibarNextItem",
+    "description": "c-p_is_up",
     "store": {},
     "modes": [
         3
@@ -19,9 +19,9 @@
     },
     "hotkey": {
         "modifiers": [
-            "<super>"
+            "<ctrl>"
         ],
-        "hotKey": "n"
+        "hotKey": "p"
     },
     "filter": {
         "regex": null,

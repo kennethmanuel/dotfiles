@@ -1,0 +1,7 @@
+#!/bin/bash
+# Option
+task_start=' start'
+task_stop='󰓛 stop'
+task_done=' done'
+
+echo -e "$task_start\n$task_stop\n$task_done" | rofi -dmenu
