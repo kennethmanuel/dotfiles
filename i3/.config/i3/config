@@ -198,12 +198,12 @@ for_window [instance="custom_tasktui"] resize set 1280 720
 for_window [instance="custom_tasktui"] move position center
 for_window [instance="custom_tasktui"] border pixel 3
 
-bindsym $mod+backslash [instance="custom_scratchpad"] scratchpad show; [instance="custom_scratchpad"] move position center;
-for_window [instance="custom_scratchpad"] floating enable
-for_window [instance="custom_scratchpad"] resize set 1024 576
-for_window [instance="custom_scratchpad"] move scratchpad
-for_window [instance="custom_scratchpad"] border pixel 3
-exec --no-startup-id "alacritty --class Alacritty,custom_scratchpad"
+# bindsym $mod+backslash [instance="custom_scratchpad"] scratchpad show; [instance="custom_scratchpad"] move position center;
+# for_window [instance="custom_scratchpad"] floating enable
+# for_window [instance="custom_scratchpad"] resize set 1024 576
+# for_window [instance="custom_scratchpad"] move scratchpad
+# for_window [instance="custom_scratchpad"] border pixel 3
+# exec --no-startup-id "alacritty --class Alacritty,custom_scratchpad"
 
 bindsym $mod+m exec --no-startup-id "alacritty --class Alacritty,custom_btop -e btop" 
 for_window [instance="custom_btop"] floating enable
