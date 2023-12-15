@@ -1,7 +1,5 @@
-include colorscheme
-
-# Execute apps with i3wm 
-# Should consider uxing XDG Autostart
+#### STARTUP APPS
+# NOTE: Should consider uxing XDG Autostart
 # https://wiki.archlinux.org/title/XDG_Autostart
 exec --no-startup-id autokey-gtk
 exec --no-startup-id dbus-update-activation-environment --all
@@ -14,39 +12,29 @@ exec --no-startup-id polychromatic-tray-applet
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id spotify
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-# exec --no-startup-id discord
-# exec --no-startup-id steam
 exec_always --no-startup-id picom -b
 
-# Alt Key
+#### MOD KEY
 set $mod mod1
 
+#### APPEARANCE
+include colorscheme
+for_window [class="^.*"] border pixel 1
 hide_edge_borders smart
+font pango:JetBrainsMono NF 9
+font pango:DejaVu Sans Mono 9
 
+### LAYOUT
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
-bindsym $mod+a focus parent
-
-# Font for window titles. Will also be used by the bar unless a different font
-# is used in the bar {} block below.
-font pango:monospace 11
-font pango:JetBrainsMono NF 9
-
-# This font is widely installed, provides lots of unicode glyphs, right-to-left
-# text rendering and scalability on retina/hidpi displays (thanks to pango).
-font pango:DejaVu Sans Mono 8
-
-# Use Mouse+$mod to drag floating windows to their wanted position
-# Left click and drag to move floating window
-# Right click and drag to resize window
+#### GENERAL KEYBIND
 floating_modifier $mod
 
 bindsym $mod+Shift+q kill
 bindsym $mod+f fullscreen toggle
 
-# Moving focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
@@ -55,8 +43,9 @@ bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
+bindsym $mod+a focus parent
+bindsym $mod+slash focus mode_toggle
 
-# Moving window
 bindsym $mod+Shift+h move left
 bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
@@ -66,29 +55,18 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
-# App launcher
-# bindsym $mod+Return exec --no-startup-id i3-sensible-terminal
-# bindsym $mod+d exec --no-startup-id dmenu_run
-bindsym $mod+Return exec --no-startup-id alacritty
-bindsym $mod+Shift+Return exec thunar
-
-# Adjust next window split
 bindsym $mod+Shift+bar split h
 bindsym $mod+minus split v
 
-# toggle tiling / floating
 bindsym $mod+Shift+slash floating toggle
 
-# change focus between tiling / floating windows
-bindsym $mod+slash focus mode_toggle
+bindsym $mod+Return exec --no-startup-id alacritty
+bindsym $mod+Shift+Return exec thunar
 
-# Monitor thing
-# primary, secondary
+#### MONITOR AND WORKSPACE
 set $pm DP-0
 set $sm HDMI-0
 
-# Define names for default workspaces for which we configure key bindings later on.
-# We use variables to avoid repeating the names in multiple places.
 set $ws1 "1"
 set $ws2 "2"
 set $ws3 "3"
@@ -100,7 +78,6 @@ set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
 
-# Assign workspaces to monitors
 workspace 1 output $pm
 workspace 2 output $pm
 workspace 3 output $pm
@@ -112,8 +89,6 @@ workspace 8 output $pm
 workspace 9 output $pm
 workspace 10 output $sm
 
-# switch to workspace
-# bindsym $mod+grave workspace number $ws0
 bindsym $mod+1 workspace number $ws1
 bindsym $mod+2 workspace number $ws2
 bindsym $mod+3 workspace number $ws3
@@ -125,8 +100,6 @@ bindsym $mod+8 workspace number $ws8
 bindsym $mod+9 workspace number $ws9
 bindsym $mod+0 workspace number $ws10
 
-# move focused container to workspace
-# bindsym $mod+Shift+grave move container to workspace number $ws0
 bindsym $mod+Shift+1 move container to workspace number $ws1
 bindsym $mod+Shift+2 move container to workspace number $ws2
 bindsym $mod+Shift+3 move container to workspace number $ws3
@@ -138,7 +111,6 @@ bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
-# Workspace binding
 assign [class="dota2"] $ws7
 assign [class="osu!"] $ws7
 assign [class="steam"] $ws6
@@ -177,7 +149,14 @@ bindsym $mod+p exec --no-startup-id ~/.config/rofi/bin/common-file-launcher
 bindsym Print exec --no-startup-id ~/.config/rofi/applets/bin/screenshot.sh
 bindsym $mod+Pause exec --no-startup-id ~/.config/rofi/applets/bin/powermenu.sh
 # bindsym $mod+apostrophe exec --no-startup-id ~/.config/rofi/applets/bin/quicklinks.sh
-bindsym $mod+t exec --no-startup-id ~/.config/rofi/bin/taskw-starter
+# bindsym $mod+t exec --no-startup-id ~/.config/rofi/bin/taskw-starter
+
+# System monitor
+bindsym $mod+backslash exec --no-startup-id "alacritty --class Alacritty,custom_btop -e btop" 
+for_window [instance="custom_btop"] floating enable
+for_window [instance="custom_btop"] resize set 1600 900
+for_window [instance="custom_btop"] move position center
+for_window [instance="custom_btop"] border pixel 3
 
 # Dotfiles
 bindsym $mod+comma exec --no-startup-id alacritty --working-directory=$HOME/.dotfiles -e nvim
@@ -226,5 +205,14 @@ bindsym XF86AudioPrev exec --no-startup-id playerctl -p spotify previous
 # Assign specific workspaces to each monitor on startup
 exec --no-startup-id i3-msg "workspace 1; move workspace to output $pm"
 exec --no-startup-id i3-msg "workspace 10; move workspace to output $sm"
+
+for_window [instance="custom_tasktui"] floating enable
+for_window [instance="custom_tasktui"] resize set 1200 800
+for_window [instance="custom_tasktui"] move scratchpad
+for_window [instance="custom_tasktui"] border pixel 3
+# exec_always --no-startup-id alacritty --class Alacritty,custom_tasktui -e zsh -c "task && exec zsh"
+# exec_always --no-startup-id alacritty --class Alacritty,custom_tasktui -e taskwarrior-tui
+exec --no-startup-id alacritty --class Alacritty,custom_tasktui -e taskwarrior-tui
+bindsym $mod+t [instance="custom_tasktui"] scratchpad show [instance="custom_tasktui"] move position center
 
 # vim:ft=i3config:

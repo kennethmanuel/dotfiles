@@ -31,6 +31,4 @@ client.urgent $peach $base $peach $overlay0 $peach
 client.placeholder $overlay0 $base $text $overlay0 $overlay0
 client.background $base
 
-for_window [class="^.*"] border pixel 1
-
 # vim:ft=i3config:
