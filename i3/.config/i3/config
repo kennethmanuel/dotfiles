@@ -1,5 +1,5 @@
 #### STARTUP APPS
-# NOTE: Should consider uxing XDG Autostart
+# Should consider uxing XDG Autostart
 # https://wiki.archlinux.org/title/XDG_Autostart
 exec --no-startup-id autokey-gtk
 exec --no-startup-id dbus-update-activation-environment --all
@@ -152,11 +152,12 @@ bindsym $mod+Pause exec --no-startup-id ~/.config/rofi/applets/bin/powermenu.sh
 # bindsym $mod+t exec --no-startup-id ~/.config/rofi/bin/taskw-starter
 
 # System monitor
-bindsym $mod+backslash exec --no-startup-id "alacritty --class Alacritty,custom_btop -e btop" 
+bindsym $mod+m exec --no-startup-id "alacritty --class Alacritty,custom_btop -e btop" 
 for_window [instance="custom_btop"] floating enable
 for_window [instance="custom_btop"] resize set 1600 900
 for_window [instance="custom_btop"] move position center
 for_window [instance="custom_btop"] border pixel 3
+
 
 # Dotfiles
 bindsym $mod+comma exec --no-startup-id alacritty --working-directory=$HOME/.dotfiles -e nvim
@@ -206,13 +207,16 @@ bindsym XF86AudioPrev exec --no-startup-id playerctl -p spotify previous
 exec --no-startup-id i3-msg "workspace 1; move workspace to output $pm"
 exec --no-startup-id i3-msg "workspace 10; move workspace to output $sm"
 
+bindsym $mod+t exec --no-startup-id "alacritty --class Alacritty,custom_tasktui -e taskwarrior-tui"
 for_window [instance="custom_tasktui"] floating enable
-for_window [instance="custom_tasktui"] resize set 1200 800
-for_window [instance="custom_tasktui"] move scratchpad
+for_window [instance="custom_tasktui"] resize set 1280 720
+for_window [instance="custom_tasktui"] move position center
 for_window [instance="custom_tasktui"] border pixel 3
-# exec_always --no-startup-id alacritty --class Alacritty,custom_tasktui -e zsh -c "task && exec zsh"
-# exec_always --no-startup-id alacritty --class Alacritty,custom_tasktui -e taskwarrior-tui
-exec --no-startup-id alacritty --class Alacritty,custom_tasktui -e taskwarrior-tui
-bindsym $mod+t [instance="custom_tasktui"] scratchpad show [instance="custom_tasktui"] move position center
 
+for_window [instance="custom_scratchpad"] floating enable
+for_window [instance="custom_scratchpad"] resize set 1024 576
+for_window [instance="custom_scratchpad"] move scratchpad
+for_window [instance="custom_scratchpad"] border pixel 3
+exec --no-startup-id "alacritty --class Alacritty,custom_scratchpad"
+bindsym $mod+backslash [instance="custom_scratchpad"] scratchpad show; [instance="custom_scratchpad"] move position center;
 # vim:ft=i3config:

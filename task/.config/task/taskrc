@@ -1,7 +1,9 @@
+include ~/.config/task/themes/catppuccin.theme
+
 data.location=~/.local/share/task
 hooks.location=~/.config/task/hooks
 
-
+# Default value (can check with `task show`)
 urgency.user.tag.next.coefficient=15.0 # +next tag
 urgency.due.coefficient=12.0 # overdue or near due date
 urgency.blocking.coefficient=8.0 # blocking other tasks
@@ -16,8 +18,15 @@ urgency.project.coefficient=1.0 # assigned to any project
 urgency.waiting.coefficient=-3.0 # waiting task
 urgency.blocked.coefficient=-5.0 # blocked by other tasks
 
-# Custom Urgency
-# More info on default urgency https://taskwarrior.org/docs/urgency/
+#### CUSTOM
+ 
+# Workflow: I only have 1 active task at all time and previously 
+# started task that has been stopped will have their urgency massively
+# boosted.
+# TODO: create hook to stop all other task when a task is started
+# check https://gist.github.com/linuxcaffe/60a773e359d46090d2da78ca7198f709
+urgency.active.coefficient=100.0 # Started should be in top
+
 urgency.user.project.kitagerak.coefficient=3.0
 urgency.user.project.learn.coefficient=2.5
 urgency.user.project.backup.coefficient=2.0
@@ -25,26 +34,13 @@ urgency.user.project.sideproj.coefficient=1.5
 urgency.user.project.config.coefficient=1.1
 urgency.user.project.personal.coefficient=1.0
 
-# Workflow: I only have 1 active task at all time and previously 
-# started task that has been stopped will have their urgency massively
-# boosted.
-#
-# TODO: create hook to stop all other task when a task is started
-# TODO: create a hook to mark task with +starte tag when previously 
-# started task is stopped.
-# check https://gist.github.com/linuxcaffe/60a773e359d46090d2da78ca7198f709
-urgency.active.coefficient=100.0 # Started should be always in top
-urgency.user.tag.started.coefficient=50.0 # 
-
+#### OTHER
 editor=nvim
 default.project=personal
-# report.next.filter=+PENDING -BLOCKING
+report.next.filter=+PENDING -BLOCKING limit:0
 
-include ~/.config/task/themes/catppuccin.theme
-
-news.version=2.6.0
-
-uda.taskwarrior-tui.keyconfig.quit=0
+#### Taskwarrior TUI
+uda.taskwarrior-tui.keyconfig.quit=q
 uda.taskwarrior-tui.keyconfig.refresh=r
 uda.taskwarrior-tui.keyconfig.go-to-bottom=G
 uda.taskwarrior-tui.keyconfig.go-to-top=g
@@ -69,4 +65,9 @@ uda.taskwarrior-tui.keyconfig.context-menu=c
 uda.taskwarrior-tui.keyconfig.next-tab=]
 uda.taskwarrior-tui.keyconfig.previous-tab=[
 
+uda.taskwarrior-tui.task-report.show-info=false
+uda.taskwarrior-tui.task-report.prompt-on-delete=true
+uda.taskwarrior-tui.task-report.prompt-on-done=true
+
+news.version=2.6.0
 # vim:ft=taskrc
