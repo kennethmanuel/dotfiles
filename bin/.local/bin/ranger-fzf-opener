@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# TODO:
+# 1. open ranger redirect output to /tmp/ranger_fzf_opener
+# 2. use rifle to open /tmp/ranger_fzf_opener
+ranger --choosefiles=/tmp/ranger_fzf_opener --cmd=fzf_select
+rifle "$(cat /tmp/ranger_fzf_opener)"
+echo -n >/tmp/ranger_fzf_opener

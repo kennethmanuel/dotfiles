@@ -111,6 +111,9 @@ bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
+exec --no-startup-id i3-msg "workspace 1; move workspace to output $pm"
+exec --no-startup-id i3-msg "workspace 10; move workspace to output $sm"
+
 assign [class="dota2"] $ws7
 assign [class="osu!"] $ws7
 assign [class="steam"] $ws6
@@ -151,14 +154,6 @@ bindsym $mod+Pause exec --no-startup-id ~/.config/rofi/applets/bin/powermenu.sh
 # bindsym $mod+apostrophe exec --no-startup-id ~/.config/rofi/applets/bin/quicklinks.sh
 # bindsym $mod+t exec --no-startup-id ~/.config/rofi/bin/taskw-starter
 
-# System monitor
-bindsym $mod+m exec --no-startup-id "alacritty --class Alacritty,custom_btop -e btop" 
-for_window [instance="custom_btop"] floating enable
-for_window [instance="custom_btop"] resize set 1600 900
-for_window [instance="custom_btop"] move position center
-for_window [instance="custom_btop"] border pixel 3
-
-
 # Dotfiles
 bindsym $mod+comma exec --no-startup-id alacritty --working-directory=$HOME/.dotfiles -e nvim
 #bindsym $mod+comma exec --no-startup-id alacritty --working-directory=$HOME/.dotfiles -e tmux new-session -s dotfiles 'nvim'
@@ -186,16 +181,10 @@ bindsym $mod+Escape mode "Passthrough Mode - Press Alt+Escape to exit"
 # $volumestep Amount to increase/decrease volume as a percentage
 set $volumepath ~/i3-volume
 set $volumestep 5
-
 # Using pulseaudio-utils (append "-s $sinkname" without quotes to override default sink)
 bindsym XF86AudioRaiseVolume exec --no-startup-id $volumepath/volume -n -t $statuscmd -u $statussig up $volumestep
 bindsym XF86AudioLowerVolume exec --no-startup-id $volumepath/volume -n -t $statuscmd -u $statussig down $volumestep
 bindsym XF86AudioMute        exec --no-startup-id $volumepath/volume -n -t $statuscmd -u $statussig mute
-
-#bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
-#bindsym XF86AudioPause exec playerctl pause
-#bindsym XF86AudioNext exec playerctl next
-#bindsym XF86AudioPrev exec playerctl previous
 
 # Use "playerctl -l" to findout what your music player is
 bindsym XF86AudioPlay exec --no-startup-id playerctl -p spotify play-pause
@@ -203,20 +192,29 @@ bindsym XF86AudioPause exec --no-startup-id playerctl -p spotify pause
 bindsym XF86AudioNext exec --no-startup-id playerctl -p spotify next
 bindsym XF86AudioPrev exec --no-startup-id playerctl -p spotify previous
 
-# Assign specific workspaces to each monitor on startup
-exec --no-startup-id i3-msg "workspace 1; move workspace to output $pm"
-exec --no-startup-id i3-msg "workspace 10; move workspace to output $sm"
-
 bindsym $mod+t exec --no-startup-id "alacritty --class Alacritty,custom_tasktui -e taskwarrior-tui"
 for_window [instance="custom_tasktui"] floating enable
 for_window [instance="custom_tasktui"] resize set 1280 720
 for_window [instance="custom_tasktui"] move position center
 for_window [instance="custom_tasktui"] border pixel 3
 
+bindsym $mod+backslash [instance="custom_scratchpad"] scratchpad show; [instance="custom_scratchpad"] move position center;
 for_window [instance="custom_scratchpad"] floating enable
 for_window [instance="custom_scratchpad"] resize set 1024 576
 for_window [instance="custom_scratchpad"] move scratchpad
 for_window [instance="custom_scratchpad"] border pixel 3
 exec --no-startup-id "alacritty --class Alacritty,custom_scratchpad"
-bindsym $mod+backslash [instance="custom_scratchpad"] scratchpad show; [instance="custom_scratchpad"] move position center;
+
+bindsym $mod+m exec --no-startup-id "alacritty --class Alacritty,custom_btop -e btop" 
+for_window [instance="custom_btop"] floating enable
+for_window [instance="custom_btop"] resize set 1600 900
+for_window [instance="custom_btop"] move position center
+for_window [instance="custom_btop"] border pixel 3
+
+bindsym $mod+o exec --no-startup-id "alacritty --class Alacritty,custom_ranger -e zsh -i -c 'ranger-fzf-opener'"
+for_window [instance="custom_ranger"] floating enable
+for_window [instance="custom_ranger"] resize set 1280 720
+for_window [instance="custom_ranger"] move position center
+for_window [instance="custom_ranger"] border pixel 3
+
 # vim:ft=i3config:

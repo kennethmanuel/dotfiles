@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# Define the directories to search in
+search_directories=(~/Documents ~/Downloads ~/Pictures ~/Videos ~/Music)
+
+if [[ $# -eq 1 ]]; then
+	selected=$1
+else
+	# Use the find command to search for files in the specified directories
+	selected=$(find "${search_directories[@]}" -type f | fzf)
+fi
+
+# if [[ -z $selected ]]; then
+# fi
+
+# Check if a file was selected
+if [ -n "$selected" ]; then
+	# Open the selected file with xdg-open
+	xdg-open "$selected" &
+	disown
+else
+	echo "No file selected."
+	exit 0
+fi
