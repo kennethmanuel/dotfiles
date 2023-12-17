@@ -1,3 +1,4 @@
+# vim:ft=taskrc
 include ~/.config/task/themes/catppuccin.theme
 
 data.location=~/.local/share/task
@@ -13,7 +14,7 @@ urgency.uda.priority.L.coefficient=-2.0 # low Priority
 urgency.scheduled.coefficient=5.0 # scheduled tasks
 urgency.age.coefficient=2.0 # coefficient for age
 urgency.annotations.coefficient=1.0 # has annotations
-urgency.tags.coefficient=1.0 # has tags
+urgency.tags.coefficient=2.0 # has tags
 urgency.project.coefficient=1.0 # assigned to any project
 urgency.waiting.coefficient=-3.0 # waiting task
 urgency.blocked.coefficient=-5.0 # blocked by other tasks
@@ -28,15 +29,11 @@ urgency.blocked.coefficient=-5.0 # blocked by other tasks
 urgency.active.coefficient=100.0 # Started should be in top
 
 urgency.user.project.kitagerak.coefficient=3.0
-urgency.user.project.learn.coefficient=2.5
-urgency.user.project.backup.coefficient=2.0
-urgency.user.project.sideproj.coefficient=1.5
-urgency.user.project.config.coefficient=1.1
-urgency.user.project.personal.coefficient=1.0
+urgency.user.tag.config.coefficient=-2.0
 
 #### OTHER
 editor=nvim
-default.project=personal
+default.project=inbox
 report.next.filter=+PENDING -BLOCKING limit:0
 
 #### Taskwarrior TUI
@@ -68,6 +65,11 @@ uda.taskwarrior-tui.keyconfig.previous-tab=[
 uda.taskwarrior-tui.task-report.show-info=false
 uda.taskwarrior-tui.task-report.prompt-on-delete=true
 uda.taskwarrior-tui.task-report.prompt-on-done=true
+uda.taskwarrior-tui.quick-tag.name=next
+
+context.today.read=due:eod or +next
+context.today.write=+next
+context.personal.read=proj:inbox -config
+context.work.read=-config project.not:inbox
 
 news.version=2.6.0
-# vim:ft=taskrc
