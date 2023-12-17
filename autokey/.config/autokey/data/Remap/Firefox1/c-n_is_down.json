@@ -1,9 +1,11 @@
 {
     "type": "script",
-    "description": "toggleFocusAddressBar",
+    "description": "c-n_is_down",
     "store": {},
-    "modes": [],
-    "usageCount": 95,
+    "modes": [
+        3
+    ],
+    "usageCount": 94,
     "prompt": false,
     "omitTrigger": false,
     "showInTrayMenu": false,
@@ -16,8 +18,10 @@
         "wordChars": "[\\w]"
     },
     "hotkey": {
-        "modifiers": [],
-        "hotKey": null
+        "modifiers": [
+            "<ctrl>"
+        ],
+        "hotKey": "n"
     },
     "filter": {
         "regex": null,

@@ -5,7 +5,7 @@
     "modes": [
         3
     ],
-    "usageCount": 94,
+    "usageCount": 115,
     "prompt": false,
     "omitTrigger": false,
     "showInTrayMenu": false,
@@ -19,7 +19,7 @@
     },
     "hotkey": {
         "modifiers": [
-            "<super>"
+            "<alt>"
         ],
         "hotKey": "l"
     },

@@ -2,9 +2,7 @@
     "type": "script",
     "description": "bookmarkTab",
     "store": {},
-    "modes": [
-        3
-    ],
+    "modes": [],
     "usageCount": 0,
     "prompt": false,
     "omitTrigger": false,
@@ -18,10 +16,8 @@
         "wordChars": "[\\w]"
     },
     "hotkey": {
-        "modifiers": [
-            "<ctrl>"
-        ],
-        "hotKey": "b"
+        "modifiers": [],
+        "hotKey": null
     },
     "filter": {
         "regex": null,

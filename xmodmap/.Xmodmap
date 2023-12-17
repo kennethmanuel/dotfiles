@@ -4,7 +4,14 @@
 ! to remap capslock to other mod key
 ! (Run 'xmodomap -pke' to see complete keycode list)
 clear lock
-keycode 66 = Alt_L
+keycode 66 = Super_L
+
+! # This is good but fuck my dota
+! keycode 64 = Mode_switch
+! keycode 43 = h H Left H
+! keycode 44 = j J Down J
+! keycode 45 = k K Up K
+! keycode 46 = l L Right L
 
 ! Keycode 135 is 'menu' key 
 ! for some reason sometimes this doesn't work after switching

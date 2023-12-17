@@ -1,6 +1,7 @@
 {
   "keyMappings": "map H previousTab\nmap L nextTab\nmap , goBack\nmap . goForward\nunmap T\nmap t Vomnibar.activateTabSelection\nmap ' Marks.activateGotoMode",
   "regexFindMode": true,
+  "searchEngines": "gh: https://github.com/search?q=%s&type=repositories GitHub\nawiki: https://wiki.archlinux.org/index.php?search=%s ArchWiki\nman: https://man.archlinux.org/search?q=%s&go=Go ArchManPages\ngoid: https://www.google.co.id/search?q=%s GoogleId\ng: https://www.google.com/search?q=%s Google\nbr: https://search.brave.com/search?q=%s Brave\nddg: https://duckduckgo.com/?q=$s DuckDuckGo\nrdt: https://www.reddit.com/search/?q=%s Reddit\naur: https://aur.archlinux.org/packages?O=0&K=%s AUR\npacman: https://archlinux.org/packages/?q=%s pacman\nw: https://www.wikipedia.org/w/index.php?title=Special:Search&search=%s Wikipedia",
   "searchUrl": "https://search.brave.com/search?q=",
   "settingsVersion": "2.0.5"
 }
