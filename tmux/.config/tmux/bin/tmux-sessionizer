@@ -1,10 +1,32 @@
 #!/usr/bin/env bash
-# stolen from primeagen
+# stolen from primeagen (greatest vimmer in the world...???)
+project_directories=(
+	~/projects/personal
+	~/projects/work
+	~/projects/github
+)
+
+no_find_directories=(
+	~/.dotfiles
+)
 
 if [[ $# -eq 1 ]]; then
 	selected=$1
 else
-	selected=$(find ~/projects/personal ~/projects/work ~/projects/github -mindepth 1 -maxdepth 1 -type d | fzf)
+	command="find"
+
+	for dir in "${project_directories[@]}"; do
+		command+=" $dir"
+	done
+
+	command+=" -mindepth 1 -maxdepth 1 -type d"
+	command+=" && "
+
+	for dir in "${no_find_directories[@]}"; do
+		command+="echo $dir"
+	done
+
+	selected=$(eval "$command" | fzf)
 fi
 
 if [[ -z $selected ]]; then

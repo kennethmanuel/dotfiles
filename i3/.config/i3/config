@@ -16,6 +16,7 @@ exec_always --no-startup-id picom -b
 
 #### MOD KEY
 set $mod mod4
+set $amod mod1
 
 #### APPEARANCE
 include colorscheme
@@ -44,7 +45,8 @@ bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 bindsym $mod+a focus parent
-# bindsym $mod+slash focus mode_toggle
+bindsym $mod+slash focus mode_toggle
+bindsym $mod+backslash floating toggle
 
 bindsym $mod+Shift+h move left
 bindsym $mod+Shift+j move down
@@ -57,9 +59,6 @@ bindsym $mod+Shift+Right move right
 
 bindsym $mod+z split h
 bindsym $mod+v split v
-
-bindsym $mod+slash floating toggle
-bindsym $mod+shift+slash move scratchpad
 
 bindsym $mod+Return exec --no-startup-id alacritty
 bindsym $mod+Shift+Return exec thunar
@@ -155,6 +154,12 @@ for_window [instance="custom_ranger"] resize set 1280 720
 for_window [instance="custom_ranger"] move position center
 for_window [instance="custom_ranger"] border pixel 3
 
+bindsym $mod+Shift+o exec --no-startup-id "alacritty --class Alacritty,custom_ranger -e zsh -i -c 'ranger'"
+for_window [instance="custom_ranger"] floating enable
+for_window [instance="custom_ranger"] resize set 1280 720
+for_window [instance="custom_ranger"] move position center
+for_window [instance="custom_ranger"] border pixel 3
+
 # Reload and restart config files
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
@@ -183,18 +188,18 @@ bindsym $mod+r mode "resize"
 bindsym $mod+space exec --no-startup-id ~/.config/rofi/launchers/type-1/launcher-drun.sh
 bindsym $mod+Tab exec --no-startup-id ~/.config/rofi/launchers/type-1/launcher-window.sh
 bindsym $mod+semicolon exec --no-startup-id ~/.config/rofi/launchers/type-1/launcher-run.sh
-bindsym $mod+p exec --no-startup-id ~/.config/rofi/bin/common-file-launcher
 bindsym Print exec --no-startup-id ~/.config/rofi/applets/bin/screenshot.sh
 bindsym $mod+Pause exec --no-startup-id ~/.config/rofi/applets/bin/powermenu.sh
 # bindsym $mod+apostrophe exec --no-startup-id ~/.config/rofi/applets/bin/quicklinks.sh
 # bindsym $mod+t exec --no-startup-id ~/.config/rofi/bin/taskw-starter
 
 # Dotfiles
-bindsym $mod+comma exec --no-startup-id alacritty --working-directory=$HOME/.dotfiles -e nvim
+# bindsym $mod+comma exec --no-startup-id alacritty --working-directory=$HOME/.dotfiles -e nvim
+bindsym $mod+comma exec --no-startup-id alacritty -e zsh -i -c 'tmux-sessionizer .dotfiles'
 #bindsym $mod+comma exec --no-startup-id alacritty --working-directory=$HOME/.dotfiles -e tmux new-session -s dotfiles 'nvim'
 
 # Passing alt mod keys to program
-mode "Passthrough Mode - Mod+F1 to exit" {
+mode "Passthrough Mode - Mod+Esc to exit" {
 	bindsym XF86AudioPlay exec --no-startup-id playerctl -p spotify play-pause
 	bindsym XF86AudioPause exec --no-startup-id playerctl -p spotify pause
 	bindsym XF86AudioNext exec --no-startup-id playerctl -p spotify next
@@ -208,15 +213,12 @@ mode "Passthrough Mode - Mod+F1 to exit" {
 	bindsym XF86AudioLowerVolume exec --no-startup-id $volumepath/volume -n -t $statuscmd -u $statussig down $volumestep
 	bindsym XF86AudioMute        exec --no-startup-id $volumepath/volume -n -t $statuscmd -u $statussig mute
 
-  bindsym $mod+F1 mode "default"
+  bindsym $mod+Escape mode "default"
   bindsym $mod+u [class="Spotify"] scratchpad show; [class="Spotify"] move position center;
-  bindsym $mod+i [class="discord"] scratchpad show; [class="discord"] move position center;
+  bindsym $mod+i [class="discord"] scratchpad show; [class="discord"] move position center;i3config
   bindsym $mod+g [class="steam"] scratchpad show; [class="steam"] move position center;
 }
-bindsym $mod+F1 mode "Passthrough Mode - Mod+F1 to exit"
-
-bindsym $mod+backslash move scratchpad
-bindsym $mod+c [class="Brave-browser"] scratchpad show; [class="Brave-browser"] move position center;
+bindsym $mod+Escape mode "Passthrough Mode - Mod+Esc to exit"
 
 # Media Keys
 # $volumestep Amount to increase/decrease volume as a percentage
@@ -228,9 +230,8 @@ bindsym XF86AudioLowerVolume exec --no-startup-id $volumepath/volume -n -t $stat
 bindsym XF86AudioMute        exec --no-startup-id $volumepath/volume -n -t $statuscmd -u $statussig mute
 
 # Use "playerctl -l" to findout what your music player is
-bindsym XF86AudioPlay exec --no-startup-id playerctl -p spotify play-pause
-bindsym XF86AudioPause exec --no-startup-id playerctl -p spotify pause
-bindsym XF86AudioNext exec --no-startup-id playerctl -p spotify next
-bindsym XF86AudioPrev exec --no-startup-id playerctl -p spotify previous
+bindsym $amod+space exec --no-startup-id playerctl -p spotify play-pause
+bindsym $amod+n exec --no-startup-id playerctl -p spotify next
+bindsym $amod+p exec --no-startup-id playerctl -p spotify previous
 
 # vim:ft=i3config:

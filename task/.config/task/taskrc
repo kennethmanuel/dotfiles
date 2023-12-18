@@ -1,10 +1,16 @@
 # vim:ft=taskrc
-include ~/.config/task/themes/catppuccin.theme
+# include ~/.config/task/themes/catppuccin.theme
 
 data.location=~/.local/share/task
 hooks.location=~/.config/task/hooks
 
+#### OTHER
+editor=nvim
+default.project=inbox
+report.next.filter=status:pending -WAITING -BLOCKING
+
 # Default value (can check with `task show`)
+urgency.active.coefficient=100.0 # Started should be in top
 urgency.user.tag.next.coefficient=15.0 # +next tag
 urgency.due.coefficient=12.0 # overdue or near due date
 urgency.blocking.coefficient=8.0 # blocking other tasks
@@ -13,28 +19,14 @@ urgency.uda.priority.M.coefficient=3.9 # medium Priority
 urgency.uda.priority.L.coefficient=-2.0 # low Priority
 urgency.scheduled.coefficient=5.0 # scheduled tasks
 urgency.age.coefficient=2.0 # coefficient for age
-urgency.annotations.coefficient=1.0 # has annotations
-urgency.tags.coefficient=2.0 # has tags
-urgency.project.coefficient=1.0 # assigned to any project
+urgency.annotations.coefficient=0.0
+urgency.tags.coefficient=0.0 # has tags
+urgency.project.coefficient=0.0
 urgency.waiting.coefficient=-3.0 # waiting task
 urgency.blocked.coefficient=-5.0 # blocked by other tasks
 
-#### CUSTOM
- 
-# Workflow: I only have 1 active task at all time and previously 
-# started task that has been stopped will have their urgency massively
-# boosted.
-# TODO: create hook to stop all other task when a task is started
-# check https://gist.github.com/linuxcaffe/60a773e359d46090d2da78ca7198f709
-urgency.active.coefficient=100.0 # Started should be in top
-
 urgency.user.project.kitagerak.coefficient=3.0
 urgency.user.tag.config.coefficient=-2.0
-
-#### OTHER
-editor=nvim
-default.project=inbox
-report.next.filter=+PENDING -BLOCKING limit:0
 
 #### Taskwarrior TUI
 uda.taskwarrior-tui.keyconfig.quit=q
@@ -73,3 +65,7 @@ context.personal.read=proj:inbox -config
 context.work.read=-config project.not:inbox
 
 news.version=2.6.0
+
+context.personal_web.read=rc.report.next.filter=status:pending -WAITING proj:personal_web
+context.personal_web.write=proj:personal_web
+
