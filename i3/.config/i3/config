@@ -213,9 +213,8 @@ for_window [instance="custom_ranger"] border pixel 3
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
-bindsym $mod+space exec --no-startup-id ~/.config/rofi/launchers/type-1/launcher-drun.sh
+bindsym $mod+d exec --no-startup-id dmenu_run -b -fn 'JetBrainsMono NF-11'
 bindsym $mod+Tab exec --no-startup-id ~/.config/rofi/launchers/type-1/launcher-window.sh
-bindsym $mod+semicolon exec --no-startup-id ~/.config/rofi/launchers/type-1/launcher-run.sh
 bindsym Print exec --no-startup-id ~/.config/rofi/applets/bin/screenshot.sh
 bindsym $mod+Pause exec --no-startup-id ~/.config/rofi/applets/bin/powermenu.sh
 
