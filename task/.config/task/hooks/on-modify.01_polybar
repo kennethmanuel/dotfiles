@@ -20,13 +20,15 @@ def main(old, new):
     # Started task.
     if 'start' in new and 'start' not in old:
         task_uuid = extract_uuid_from(new)
-        output_file_path = "/tmp/tw_polybar_id"
+        # output_file_path = "/tmp/tw_polybar_id"
+        output_file_path = "~/.tw_started_id"
         command = f"echo {task_uuid} > {output_file_path}"
         subprocess.call(command, shell=True)
 
     # Stopped task.
     elif ('start' not in new or 'end' in new) and 'start' in old:
-        output_file_path = "/tmp/tw_polybar_id"
+        # output_file_path = "/tmp/tw_polybar_id"
+        output_file_path = "~/.tw_started_id"
         command = f"echo '' > {output_file_path}"
         subprocess.call(command, shell=True)
 

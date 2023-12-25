@@ -1,5 +1,6 @@
 # vim:ft=taskrc
 # include ~/.config/task/themes/catppuccin.theme
+news.version=2.6.0
 
 data.location=~/.local/share/task
 hooks.location=~/.config/task/hooks
@@ -61,11 +62,17 @@ uda.taskwarrior-tui.quick-tag.name=next
 
 context.today.read=due:eod or +next
 context.today.write=+next
+
 context.personal.read=proj:inbox -config
-context.work.read=-config project.not:inbox
 
-news.version=2.6.0
+context.kitagerak.read=proj:kitagerak
+context.kitagerak.write=proj:kitagerak
 
-context.personal_web.read=rc.report.next.filter=status:pending -WAITING proj:personal_web
-context.personal_web.write=proj:personal_web
+context.forrest_kekkai.read=proj:forrest_kekkai
+context.forrest_kekkai.write=proj:forrest_kekkai
 
+context.learn_go.read=proj:learn_go
+context.learn_go.write=proj:learn_go
+context.learn_javascript.read=proj:learn_javascript
+context.learn_javascript.write=proj:learn_javascript
+context=learn_javascript

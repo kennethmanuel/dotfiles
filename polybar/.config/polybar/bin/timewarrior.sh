@@ -1,10 +1,10 @@
 #!/bin/sh
 
-if [ "$(cat /tmp/tw_polybar_id)" == "" ]; then
+if [ "$(cat ~/.tw_started_id)" == "" ]; then
 	printf "no tracking"
 else
-	project=$(task _get "$(cat /tmp/tw_polybar_id)".project)
-	description=$(task _get "$(cat /tmp/tw_polybar_id)".description)
+	project=$(task _get "$(cat ~/.tw_started_id)".project)
+	description=$(task _get "$(cat ~/.tw_started_id)".description)
 
 	if timew >/dev/null 2>&1; then
 		printf "$(timew summary :day "$project" "$description" | awk '{print $NF}' | tail -2 | head -1)"
@@ -14,9 +14,9 @@ else
 
 	if [ "${1}" = "--toggle" ]; then
 		if timew; then
-			task "$(cat /tmp/tw_polybar_id)" stop
+			task "$(cat ~/.tw_started_id)" stop
 		else
-			task "$(cat /tmp/tw_polybar_id)" start
+			task "$(cat ~/.tw_started_id)" start
 		fi
 	fi
 

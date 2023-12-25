@@ -155,18 +155,18 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-assign [class="dota2"] $ws7
+assign [class="dota2"] $ws6
 assign [class="osu!"] $ws7
 
 bindsym $mod+Return exec --no-startup-id alacritty
 bindsym $mod+Shift+Return exec thunar
 bindsym $mod+b exec brave
 
-bindsym $mod+backslash [instance="custom_alacritty"] scratchpad show; [instance="custom_alacritty"] move position center
-for_window [instance="custom_alacritty"] floating enable
-for_window [instance="custom_alacritty"] resize set 1280 720
-for_window [instance="custom_alacritty"] move scratchpad
-for_window [instance="custom_alacritty"] border pixel 3
+# bindsym $mod+backslash [instance="custom_alacritty"] scratchpad show; [instance="custom_alacritty"] move position center
+# for_window [instance="custom_alacritty"] floating enable
+# for_window [instance="custom_alacritty"] resize set 1280 720
+# for_window [instance="custom_alacritty"] move scratchpad
+# for_window [instance="custom_alacritty"] border pixel 3
 
 bindsym $mod+g [class="steam"] scratchpad show; [class="steam"] move position center;
 for_window [class="steam"] floating enable

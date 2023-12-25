@@ -2,10 +2,8 @@
     "type": "script",
     "description": "esc_alternative",
     "store": {},
-    "modes": [
-        3
-    ],
-    "usageCount": 129,
+    "modes": [],
+    "usageCount": 135,
     "prompt": false,
     "omitTrigger": false,
     "showInTrayMenu": true,
@@ -18,10 +16,8 @@
         "wordChars": "[\\w]"
     },
     "hotkey": {
-        "modifiers": [
-            "<ctrl>"
-        ],
-        "hotKey": "["
+        "modifiers": [],
+        "hotKey": null
     },
     "filter": {
         "regex": null,
