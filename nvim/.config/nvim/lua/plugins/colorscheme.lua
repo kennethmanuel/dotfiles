@@ -7,6 +7,12 @@ return {
       transparent_background = true,
     },
   },
+  { "rose-pine/neovim", name = "rose-pine", opts = {} },
+  {
+    "folke/tokyonight.nvim",
+    lazy = true,
+    opts = { style = "night", transparent = true },
+  },
   {
     "LazyVim/LazyVim",
     opts = {

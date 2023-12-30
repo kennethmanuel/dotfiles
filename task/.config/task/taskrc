@@ -1,5 +1,6 @@
 # vim:ft=taskrc
 # include ~/.config/task/themes/catppuccin.theme
+include ~/.config/task/themes/dark-16.theme
 news.version=2.6.0
 
 data.location=~/.local/share/task
@@ -8,7 +9,8 @@ hooks.location=~/.config/task/hooks
 #### OTHER
 editor=nvim
 default.project=inbox
-report.next.filter=status:pending -WAITING -BLOCKING
+report.next.filter=status:pending -WAITING limit:25
+uda.taskwarrior-tui.task-report.next.filter=status:pending -WAITING
 
 # Default value (can check with `task show`)
 urgency.active.coefficient=100.0 # Started should be in top
@@ -60,14 +62,13 @@ uda.taskwarrior-tui.task-report.prompt-on-delete=true
 uda.taskwarrior-tui.task-report.prompt-on-done=true
 uda.taskwarrior-tui.quick-tag.name=next
 
+
 context.today.read=due:eod or +next
 context.today.write=+next
-
 context.personal.read=proj:inbox -config
 
 context.kitagerak.read=proj:kitagerak
 context.kitagerak.write=proj:kitagerak
-
 context.forrest_kekkai.read=proj:forrest_kekkai
 context.forrest_kekkai.write=proj:forrest_kekkai
 
@@ -75,4 +76,13 @@ context.learn_go.read=proj:learn_go
 context.learn_go.write=proj:learn_go
 context.learn_javascript.read=proj:learn_javascript
 context.learn_javascript.write=proj:learn_javascript
-context=learn_javascript
+context.learn_coreutils.read=proj:learn_coreutils
+context.learn_coreutils.write=proj:learn_coreutils
+context.learn_design_pattern.read=proj:learn_design_pattern
+context.learn_design_pattern.write=proj:learn_design_pattern
+context.open_source.read=proj:open_source
+context.open_source.write=proj:open_source
+context.self_host.read=proj:self_host
+context.self_host.write=proj:self_host
+context.personal_web.read=proj:personal_web
+context.personal_web.write=proj:personal_web
