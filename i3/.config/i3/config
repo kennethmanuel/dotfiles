@@ -135,25 +135,32 @@ bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 bindsym $mod+Shift+c move container to workspace number $ws11
 
-exec --no-startup-id i3-msg "workspace 1; move workspace to output $pm"
-exec --no-startup-id i3-msg "workspace 10; move workspace to output $sm"
-
 mode "resize" {
-        bindsym h resize shrink width 10 px or 10 ppt
-        bindsym j resize grow height 10 px or 10 ppt
-        bindsym k resize shrink height 10 px or 10 ppt
-        bindsym l resize grow width 10 px or 10 ppt
+  bindsym h resize shrink width 10 px or 10 ppt
+  bindsym j resize grow height 10 px or 10 ppt
+  bindsym k resize shrink height 10 px or 10 ppt
+  bindsym l resize grow width 10 px or 10 ppt
 
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+  bindsym Left resize shrink width 10 px or 10 ppt
+  bindsym Down resize grow height 10 px or 10 ppt
+  bindsym Up resize shrink height 10 px or 10 ppt
+  bindsym Right resize grow width 10 px or 10 ppt
 
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-        bindsym $mod+r mode "default"
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+  bindsym $mod+r mode "default"
 }
 bindsym $mod+r mode "resize"
+
+set $volumepath ~/i3-volume
+set $volumestep 5
+bindsym XF86AudioRaiseVolume exec --no-startup-id $volumepath/volume -n -t $statuscmd -u $statussig up $volumestep
+bindsym XF86AudioLowerVolume exec --no-startup-id $volumepath/volume -n -t $statuscmd -u $statussig down $volumestep
+bindsym XF86AudioMute        exec --no-startup-id $volumepath/volume -n -t $statuscmd -u $statussig mute
+
+bindsym $amod+space exec --no-startup-id playerctl -p spotify play-pause
+bindsym $amod+n exec --no-startup-id playerctl -p spotify next
+bindsym $amod+p exec --no-startup-id playerctl -p spotify previous
 
 assign [class="dota2"] $ws5
 assign [class="osu!"] $ws6
@@ -200,41 +207,17 @@ for_window [instance="custom_ranger"] border pixel 3
 
 bindsym $mod+Shift+r restart
 
-bindsym $mod+Tab exec --no-startup-id 'rofi -show window -theme ~/.dotfiles/rofi/.config/rofi/material.rasi'
-bindsym $amod+Tab exec --no-startup-id 'rofi -show window -theme ~/.dotfiles/rofi/.config/rofi/material.rasi'
+bindsym $amod+Tab exec --no-startup-id "rofi -show window -theme ~/.dotfiles/rofi/.config/rofi/material.rasi"
+bindsym $mod+space exec --no-startup-id "rofi -show drun -theme ~/.dotfiles/rofi/.config/rofi/material.rasi"
+bindsym $mod+d exec --no-startup-id "rofi -show run -theme ~/.dotfiles/rofi/.config/rofi/material.rasi"
 bindsym Print exec --no-startup-id ~/.config/rofi/applets/bin/screenshot.sh
 
 mode "Passthrough Mode - Mod+Esc to exit" {
-	bindsym XF86AudioPlay exec --no-startup-id playerctl -p spotify play-pause
-	bindsym XF86AudioPause exec --no-startup-id playerctl -p spotify pause
-	bindsym XF86AudioNext exec --no-startup-id playerctl -p spotify next
-	bindsym XF86AudioPrev exec --no-startup-id playerctl -p spotify previous
-
-	set $volumepath ~/i3-volume
-	set $volumestep 5
-
-	bindsym XF86AudioRaiseVolume exec --no-startup-id $volumepath/volume -n -t $statuscmd -u $statussig up $volumestep
-	bindsym XF86AudioLowerVolume exec --no-startup-id $volumepath/volume -n -t $statuscmd -u $statussig down $volumestep
-	bindsym XF86AudiocMuteMute        exec --no-startup-id $volumepath/volume -n -t $statuscmd -u $statussig mute
-
   bindsym $mod+Escape mode "default"
-  bindsym $mod+u [class="Spotify"] scratchpad show; [class="Spotify"] move position center;
-  bindsym $mod+i [class="discord"] scratchpad show; [class="discord"] move position center;i3config
-  bindsym $mod+g [class="steam"] scratchpad show; [class="steam"] move position center;
-  bindsym $mod+a focus parent
-  bindsym $amod+space exec --no-startup-id playerctl -p spotify play-pause
-  bindsym $amod+n exec --no-startup-id playerctl -p spotify next
-  bindsym $amod+p exec --no-startup-id playerctl -p spotify previous
+  bindsym $amod+Escape mode "default"
 }
 bindsym $mod+Escape mode "Passthrough Mode - Mod+Esc to exit"
+bindsym $amod+Escape mode "Passthrough Mode - Mod+Esc to exit"
 
-set $volumepath ~/i3-volume
-set $volumestep 5
-
-bindsym XF86AudioRaiseVolume exec --no-startup-id $volumepath/volume -n -t $statuscmd -u $statussig up $volumestep
-bindsym XF86AudioLowerVolume exec --no-startup-id $volumepath/volume -n -t $statuscmd -u $statussig down $volumestep
-bindsym XF86AudioMute        exec --no-startup-id $volumepath/volume -n -t $statuscmd -u $statussig mute
-
-bindsym $amod+space exec --no-startup-id playerctl -p spotify play-pause
-bindsym $amod+n exec --no-startup-id playerctl -p spotify next
-bindsym $amod+p exec --no-startup-id playerctl -p spotify previous
+exec --no-startup-id i3-msg "workspace 1; move workspace to output $pm"
+exec --no-startup-id i3-msg "workspace 10; move workspace to output $sm"
