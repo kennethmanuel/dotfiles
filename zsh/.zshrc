@@ -22,6 +22,7 @@ alias sudo='sudo '
 alias vim='nvim'
 alias code='vscodium'
 alias lg='lazygit'
+alias fly='/home/kenneth/.fly/bin/flyctl'
 
 export PATH=$PATH:~/.config/tmux/bin
 export PATH=$PATH:~/.local/bin

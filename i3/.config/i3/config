@@ -9,6 +9,8 @@ exec --no-startup-id nm-applet
 exec --no-startup-id polychromatic-tray-applet
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id spotify
+# exec --no-startup-id rhythmbox
+exec --no-startup-id elisa
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 for_window [class="^.*"] border pixel 1
@@ -97,7 +99,8 @@ set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
-set $ws11 "11"
+set $ws11 "11:music"
+set $ws12 "12:steam"
 
 workspace 1 output $pm
 workspace 2 output $pm
@@ -109,7 +112,8 @@ workspace 7 output $pm
 workspace 8 output $pm
 workspace 9 output $pm
 workspace 10 output $sm
-workspace 11 output $pm
+workspace "11:music" output $pm
+workspace "12:steam" output $pm
 
 bindsym $mod+1 workspace number $ws1
 bindsym $mod+2 workspace number $ws2
@@ -121,7 +125,8 @@ bindsym $mod+7 workspace number $ws7
 bindsym $mod+8 workspace number $ws8
 bindsym $mod+9 workspace number $ws9
 bindsym $mod+0 workspace number $ws10
-bindsym $mod+c workspace number $ws11
+bindsym $mod+c workspace number $ws11; layout tabbed
+bindsym $mod+g workspace number $ws12; layout tabbed
 
 bindsym $mod+Shift+1 move container to workspace number $ws1
 bindsym $mod+Shift+2 move container to workspace number $ws2
@@ -134,6 +139,7 @@ bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 bindsym $mod+Shift+c move container to workspace number $ws11
+bindsym $mod+Shift+g move container to workspace number $ws12
 
 mode "resize" {
   bindsym h resize shrink width 10 px or 10 ppt
@@ -163,17 +169,24 @@ bindsym $amod+n exec --no-startup-id playerctl -p spotify next
 bindsym $amod+p exec --no-startup-id playerctl -p spotify previous
 
 assign [class="dota2"] $ws5
+for_window [class="dota2"] floating enable
+for_window [class="dota2"] resize set 1600 900
 assign [class="osu!"] $ws6
+assign [class="Spotify"] $ws11
+assign [class="Rhythmbox"] $ws11
+assign [class="elisa"] $ws11
+assign [class="steam"] $ws12
 
 bindsym $mod+Return exec --no-startup-id alacritty
 bindsym $mod+Shift+Return exec thunar
 bindsym $mod+b exec firefox
+bindsym $amod+c exec rhythmbox
 
-bindsym $mod+g [class="steam"] scratchpad show; [class="steam"] move position center;
-for_window [class="steam"] floating enable
-for_window [class="steam"] resize set 1600 900
-for_window [class="steam"] move scratchpad
-for_window [class="steam"] border pixel 3
+# bindsym $mod+g [class="^steam$"] scratchpad show; [class="^steam$"] move position center;
+# for_window [class="^steam$"] floating enable
+# for_window [class="^steam$"] resize set 1600 900
+# for_window [class="^steam$"] move scratchpad
+# for_window [class="^steam$"] border pixel 3
 
 bindsym $mod+x [class="discord"] scratchpad show; [class="discord"] move position center;
 for_window [class="discord"] floating enable

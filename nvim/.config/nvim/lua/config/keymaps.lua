@@ -17,3 +17,5 @@ vim.keymap.set("n", "<leader>Y", [["+Y]], { desc = "yank plus register" })
 
 vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]], { desc = "delete to plus register" })
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>", { desc = "delete to plus register" })
+
+vim.keymap.set("i", "<C-c>", "<Esc>")
