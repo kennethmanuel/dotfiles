@@ -7,7 +7,7 @@ else
 	description=$(task _get "$(cat ~/.tw_started_id)".description)
 
 	if timew >/dev/null 2>&1; then
-		printf "$(timew summary :day "$project" "$description" | awk '{print $NF}' | tail -2 | head -1)"
+		printf "    $(timew summary :day "$project" "$description" | awk '{print $NF}' | tail -2 | head -1)"
 	else
 		printf ""
 	fi
