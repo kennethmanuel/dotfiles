@@ -28,9 +28,6 @@ urgency.project.coefficient=0.0
 urgency.waiting.coefficient=-3.0 # waiting task
 urgency.blocked.coefficient=-5.0 # blocked by other tasks
 
-urgency.user.project.kitagerak.coefficient=3.0
-urgency.user.tag.config.coefficient=-2.0
-
 #### Taskwarrior TUI
 uda.taskwarrior-tui.keyconfig.quit=q
 uda.taskwarrior-tui.keyconfig.refresh=r
@@ -45,7 +42,6 @@ uda.taskwarrior-tui.keyconfig.done=d
 uda.taskwarrior-tui.keyconfig.start-stop=s
 uda.taskwarrior-tui.keyconfig.quick-tag=t
 uda.taskwarrior-tui.keyconfig.undo=u
-uda.taskwarrior-tui.keyconfig.edit=e
 uda.taskwarrior-tui.keyconfig.modify=m
 uda.taskwarrior-tui.keyconfig.shell=!
 uda.taskwarrior-tui.keyconfig.log=l
@@ -61,28 +57,8 @@ uda.taskwarrior-tui.task-report.show-info=false
 uda.taskwarrior-tui.task-report.prompt-on-delete=true
 uda.taskwarrior-tui.task-report.prompt-on-done=true
 uda.taskwarrior-tui.quick-tag.name=next
-
-
-context.today.read=due:eod or +next
-context.today.write=+next
-context.personal.read=proj:inbox -config
-
-context.kitagerak.read=proj:kitagerak
-context.kitagerak.write=proj:kitagerak
-context.forrest_kekkai.read=proj:forrest_kekkai
-context.forrest_kekkai.write=proj:forrest_kekkai
-
-context.learn_go.read=proj:learn_go
-context.learn_go.write=proj:learn_go
-context.learn_javascript.read=proj:learn_javascript
-context.learn_javascript.write=proj:learn_javascript
-context.learn_coreutils.read=proj:learn_coreutils
-context.learn_coreutils.write=proj:learn_coreutils
-context.learn_design_pattern.read=proj:learn_design_pattern
-context.learn_design_pattern.write=proj:learn_design_pattern
-context.open_source.read=proj:open_source
-context.open_source.write=proj:open_source
-context.self_host.read=proj:self_host
-context.self_host.write=proj:self_host
-context.personal_web.read=proj:personal_web
-context.personal_web.write=proj:personal_web
+context.irl.read=proj:irl
+context.irl.write=proj:irl
+context.dailies.read=proj:dailies
+context.dailies.write=proj:dailies
+sync.encryption_secret=bodyflicker

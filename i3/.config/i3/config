@@ -9,6 +9,10 @@ exec --no-startup-id nm-applet
 exec --no-startup-id polychromatic-tray-applet
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id spotify
+exec --no-startup-id steam
+exec --no-startup-id discord
+exec --no-startup-id picom -b
+exec --no-startup-id obsidian
 # exec --no-startup-id rhythmbox
 exec --no-startup-id elisa
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
@@ -16,7 +20,7 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 for_window [class="^.*"] border pixel 1
 hide_edge_borders smart
 font pango:JetBrainsMono NF 9
-font pango:DejaVu Sans Mono 9
+# font pango:DejaVu Sans Mono 5
 
 set $rosewater #f5e0dc
 set $flamingo  #f2cdcd
@@ -52,7 +56,6 @@ client.placeholder $overlay0 $base $text $overlay0 $overlay0
 client.background $base
 
 set $mod mod4
-set $amod mod1
 floating_modifier $mod
 
 bindsym $mod+w layout tabbed
@@ -81,10 +84,10 @@ bindsym $mod+Shift+Right move right
 bindsym $mod+a focus parent
 
 bindsym $mod+slash focus mode_toggle
-bindsym $mod+Shift+slash floating toggle
+bindsym $mod+Shift+space floating toggle
 
-bindsym $mod+z split h
-bindsym $mod+v split v
+bindsym $mod+bar split h
+bindsym $mod+minus split v
 
 set $pm DP-0
 set $sm HDMI-0
@@ -99,8 +102,6 @@ set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
-set $ws11 "11:music"
-set $ws12 "12:steam"
 
 workspace 1 output $pm
 workspace 2 output $pm
@@ -112,34 +113,28 @@ workspace 7 output $pm
 workspace 8 output $pm
 workspace 9 output $pm
 workspace 10 output $sm
-workspace "11:music" output $pm
-workspace "12:steam" output $pm
 
 bindsym $mod+1 workspace number $ws1
 bindsym $mod+2 workspace number $ws2
 bindsym $mod+3 workspace number $ws3
 bindsym $mod+4 workspace number $ws4
 bindsym $mod+5 workspace number $ws5
-bindsym $mod+6 workspace number $ws6
-bindsym $mod+7 workspace number $ws7
-bindsym $mod+8 workspace number $ws8
-bindsym $mod+9 workspace number $ws9
+bindsym $mod+z workspace number $ws6
+bindsym $mod+x workspace number $ws7
+bindsym $mod+g workspace number $ws8
+bindsym $mod+c workspace number $ws9
 bindsym $mod+0 workspace number $ws10
-bindsym $mod+c workspace number $ws11; layout tabbed
-bindsym $mod+g workspace number $ws12; layout tabbed
 
 bindsym $mod+Shift+1 move container to workspace number $ws1
 bindsym $mod+Shift+2 move container to workspace number $ws2
 bindsym $mod+Shift+3 move container to workspace number $ws3
 bindsym $mod+Shift+4 move container to workspace number $ws4
 bindsym $mod+Shift+5 move container to workspace number $ws5
-bindsym $mod+Shift+6 move container to workspace number $ws6
-bindsym $mod+Shift+7 move container to workspace number $ws7
-bindsym $mod+Shift+8 move container to workspace number $ws8
-bindsym $mod+Shift+9 move container to workspace number $ws9
+bindsym $mod+Shift+z move container to workspace number $ws6
+bindsym $mod+Shift+x move container to workspace number $ws7
+bindsym $mod+Shift+g move container to workspace number $ws8
+bindsym $mod+Shift+c move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
-bindsym $mod+Shift+c move container to workspace number $ws11
-bindsym $mod+Shift+g move container to workspace number $ws12
 
 mode "resize" {
   bindsym h resize shrink width 10 px or 10 ppt
@@ -158,41 +153,25 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-set $volumepath ~/i3-volume
-set $volumestep 5
-bindsym XF86AudioRaiseVolume exec --no-startup-id $volumepath/volume -n -t $statuscmd -u $statussig up $volumestep
-bindsym XF86AudioLowerVolume exec --no-startup-id $volumepath/volume -n -t $statuscmd -u $statussig down $volumestep
-bindsym XF86AudioMute        exec --no-startup-id $volumepath/volume -n -t $statuscmd -u $statussig mute
+# bindsym $amod+space exec --no-startup-id playerctl -p spotify play-pause
+# bindsym $amod+n exec --no-startup-id playerctl -p spotify next
+# bindsym $amod+p exec --no-startup-id playerctl -p spotify previous
 
-bindsym $amod+space exec --no-startup-id playerctl -p spotify play-pause
-bindsym $amod+n exec --no-startup-id playerctl -p spotify next
-bindsym $amod+p exec --no-startup-id playerctl -p spotify previous
-
-assign [class="dota2"] $ws5
-for_window [class="dota2"] floating enable
-for_window [class="dota2"] resize set 1600 900
-assign [class="osu!"] $ws6
-assign [class="Spotify"] $ws11
-assign [class="Rhythmbox"] $ws11
-assign [class="elisa"] $ws11
-assign [class="steam"] $ws12
+assign [class="obsidian"] $ws6
+assign [class="calibre"] $ws6
+assign [class="discord"] $ws7
+assign [class="steam"] $ws8
+assign [class="dota2"] $ws8
+assign [class="osu!"] $ws8
+assign [class="Spotify"] $ws9
+assign [class="Rhythmbox"] $ws9
+assign [class="amberol"] $ws9
+assign [class="elisa"] $ws9
 
 bindsym $mod+Return exec --no-startup-id alacritty
-bindsym $mod+Shift+Return exec thunar
+bindsym $mod+Shift+Return exec nautilus
 bindsym $mod+b exec firefox
-bindsym $amod+c exec rhythmbox
-
-# bindsym $mod+g [class="^steam$"] scratchpad show; [class="^steam$"] move position center;
-# for_window [class="^steam$"] floating enable
-# for_window [class="^steam$"] resize set 1600 900
-# for_window [class="^steam$"] move scratchpad
-# for_window [class="^steam$"] border pixel 3
-
-bindsym $mod+x [class="discord"] scratchpad show; [class="discord"] move position center;
-for_window [class="discord"] floating enable
-for_window [class="discord"] resize set 1600 900
-for_window [class="discord"] move scratchpad
-for_window [class="discord"] border pixel 3
+bindsym $mod+period exec gnome-characters
 
 bindsym $mod+t exec --no-startup-id "alacritty --class custom_tasktui -e taskwarrior-tui"
 for_window [instance="custom_tasktui"] floating enable
@@ -220,7 +199,7 @@ for_window [instance="custom_ranger"] border pixel 3
 
 bindsym $mod+Shift+r restart
 
-bindsym $amod+Tab exec --no-startup-id "rofi -show window -theme ~/.dotfiles/rofi/.config/rofi/material.rasi"
+# bindsym $amod+Tab exec --no-startup-id "rofi -show window -theme ~/.dotfiles/rofi/.config/rofi/material.rasi"
 bindsym $mod+space exec --no-startup-id "rofi -show drun -theme ~/.dotfiles/rofi/.config/rofi/material.rasi"
 bindsym $mod+d exec --no-startup-id "rofi -show run -theme ~/.dotfiles/rofi/.config/rofi/material.rasi"
 bindsym Print exec --no-startup-id ~/.config/rofi/applets/bin/screenshot.sh
@@ -230,7 +209,6 @@ mode "Passthrough Mode - Mod+Esc to exit" {
   bindsym $amod+Escape mode "default"
 }
 bindsym $mod+Escape mode "Passthrough Mode - Mod+Esc to exit"
-bindsym $amod+Escape mode "Passthrough Mode - Mod+Esc to exit"
 
 exec --no-startup-id i3-msg "workspace 1; move workspace to output $pm"
 exec --no-startup-id i3-msg "workspace 10; move workspace to output $sm"
