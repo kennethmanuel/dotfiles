@@ -9,8 +9,8 @@ hooks.location=~/.config/task/hooks
 #### OTHER
 editor=nvim
 default.project=inbox
-report.next.filter=status:pending -WAITING limit:25
-uda.taskwarrior-tui.task-report.next.filter=status:pending -WAITING
+report.next.filter=status:pending -WAITING proj.not:dailies limit:25
+uda.taskwarrior-tui.task-report.next.filter=status:pending -WAITING limit:25
 
 # Default value (can check with `task show`)
 urgency.active.coefficient=100.0 # Started should be in top
@@ -42,6 +42,7 @@ uda.taskwarrior-tui.keyconfig.done=d
 uda.taskwarrior-tui.keyconfig.start-stop=s
 uda.taskwarrior-tui.keyconfig.quick-tag=t
 uda.taskwarrior-tui.keyconfig.undo=u
+# uda.taskwarrior-tui.keyconfig.edit=e
 uda.taskwarrior-tui.keyconfig.modify=m
 uda.taskwarrior-tui.keyconfig.shell=!
 uda.taskwarrior-tui.keyconfig.log=l
@@ -57,8 +58,15 @@ uda.taskwarrior-tui.task-report.show-info=false
 uda.taskwarrior-tui.task-report.prompt-on-delete=true
 uda.taskwarrior-tui.task-report.prompt-on-done=true
 uda.taskwarrior-tui.quick-tag.name=next
-context.irl.read=proj:irl
-context.irl.write=proj:irl
+
 context.dailies.read=proj:dailies
 context.dailies.write=proj:dailies
-sync.encryption_secret=bodyflicker
+
+context.orientasi.read=proj:orientasi
+context.orientasi.write=proj:orientasi
+
+context.dailies.read=proj:dailies
+context.dailies.write=proj:dailies
+
+context.rust.read=proj:rust
+context.rust.write=proj:rust

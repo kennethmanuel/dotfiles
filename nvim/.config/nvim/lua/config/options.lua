@@ -5,3 +5,4 @@
 vim.opt.clipboard = "unnamed"
 vim.opt.conceallevel = 0
 vim.opt.colorcolumn = "80"
+vim.opt.tabstop = 4
