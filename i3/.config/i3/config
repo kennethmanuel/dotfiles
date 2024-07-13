@@ -1,26 +1,28 @@
-# vim:ft=i3config
 
-exec --no-startup-id dbus-update-activation-environment --all
-exec --no-startup-id gnome-keyring-daemon --start --components=secrets
-exec --no-startup-id kdeconnect-indicator
-exec --no-startup-id pasystray
+# exec --no-startup-id dbus-update-activation-environment --all
+# exec --no-startup-id gnome-keyring-daemon --start --components=secrets
+# exec --no-startup-id kdeconnect-indicator
+# exec --no-startup-id pasystray
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id nm-applet
 exec --no-startup-id polychromatic-tray-applet
-exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+# exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id spotify
 exec --no-startup-id steam
 exec --no-startup-id discord
 exec --no-startup-id picom -b
 exec --no-startup-id obsidian
 # exec --no-startup-id rhythmbox
-exec --no-startup-id elisa
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+# exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 for_window [class="^.*"] border pixel 1
 hide_edge_borders smart
-font pango:JetBrainsMono NF 9
+font pango:Noto Sans Mono 10
 # font pango:DejaVu Sans Mono 5
+
+bar {
+  status_command i3status
+}
 
 set $rosewater #f5e0dc
 set $flamingo  #f2cdcd
@@ -52,7 +54,7 @@ client.focused $lavender $base $text $rosewater $lavender
 client.focused_inactive $overlay0 $base $text $rosewater $overlay0
 client.unfocused $overlay0 $base $text $rosewater $overlay0
 client.urgent $peach $base $peach $overlay0 $peach
-client.placeholder $overlay0 $base $text $overlay0 $overlay0
+client.placeholder $overlay0 $base $text $overlay0 $overlay0s
 client.background $base
 
 set $mod mod4
@@ -89,7 +91,7 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+bar split h
 bindsym $mod+minus split v
 
-set $pm DP-0
+set $pm DP-0s
 set $sm HDMI-0
 
 set $ws1 "1"
@@ -169,7 +171,7 @@ assign [class="amberol"] $ws9
 assign [class="elisa"] $ws9
 
 bindsym $mod+Return exec --no-startup-id alacritty
-bindsym $mod+Shift+Return exec nautilus
+bindsym $mod+Shift+Return exec thunar
 bindsym $mod+b exec firefox
 bindsym $mod+period exec gnome-characters
 
@@ -209,6 +211,9 @@ mode "Passthrough Mode - Mod+Esc to exit" {
   bindsym $amod+Escape mode "default"
 }
 bindsym $mod+Escape mode "Passthrough Mode - Mod+Esc to exit"
+
+# gaps inner 3px
+# gaps outer 3px
 
 exec --no-startup-id i3-msg "workspace 1; move workspace to output $pm"
 exec --no-startup-id i3-msg "workspace 10; move workspace to output $sm"

@@ -1,7 +1,7 @@
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
-HISTSIZE=1000
-SAVEHIST=5000
+HISTSIZE=10000
+SAVEHIST=50000
 bindkey -e
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
@@ -43,10 +43,10 @@ export MANPAGER='nvim +Man!'
 export VISUAL=nvim
 export FZF_DEFAULT_OPTS=" \
 --height 50% --border --reverse"
-export QT_AUTO_SCREEN_SCALE_FACTOR=1
-export QT_ENABLE_HIGHDPI_SCALING=1
-export GTK_THEME=Adwaita-dark
-export ADW_DISABLE_PORTAL=1
+# export QT_AUTO_SCREEN_SCALE_FACTOR=1
+# export QT_ENABLE_HIGHDPI_SCALING=1
+# export GTK_THEME=Adwaita:dark
+# export ADW_DISABLE_PORTAL=1
 
 bindkey -s ^f "tmux-sessionizer\n"
 bindkey -s ^t "taskwarrior-tui\n"
