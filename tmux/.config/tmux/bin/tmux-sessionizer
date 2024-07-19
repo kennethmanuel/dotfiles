@@ -7,7 +7,7 @@ project_directories=(
 
 other_directories=(
   ~/.dotfiles
-  ~/vimwiki
+  ~/Notes
   "/mnt/d/Documents/Book/Computer Networking Top Down Approach"
 )
 

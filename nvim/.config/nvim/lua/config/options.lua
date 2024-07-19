@@ -3,6 +3,6 @@
 -- Add any additional options here
 
 vim.opt.clipboard = "unnamed"
-vim.opt.conceallevel = 0
+vim.opt.conceallevel = 1
 vim.opt.colorcolumn = "80"
 vim.opt.tabstop = 4
