@@ -3,11 +3,11 @@ project_directories=(
   ~/projects/work
   ~/projects/personal
   ~/projects/github
+  ~/vaults
 )
 
 other_directories=(
   ~/.dotfiles
-  ~/Notes
   "/mnt/d/Documents/Book/Computer Networking Top Down Approach"
 )
 
