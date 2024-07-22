@@ -9,6 +9,7 @@ project_directories=(
 other_directories=(
   ~/.dotfiles
   "/mnt/d/Documents/Book/Computer Networking Top Down Approach"
+  ~/.config/nvim
 )
 
 if [[ $# -eq 1 ]]; then
