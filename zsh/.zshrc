@@ -31,6 +31,7 @@ alias currentread="cd '/mnt/d/Documents/Top Down Approach'"
 alias notes='cd /mnt/d/notes'
 alias timews='timew summary'
 alias ls='ls --color=never'
+alias fdfind='fd'
 
 csh() {
     curl "cheat.sh/$1"
@@ -47,6 +48,7 @@ export FZF_DEFAULT_OPTS=" \
 # export QT_ENABLE_HIGHDPI_SCALING=1
 # export GTK_THEME=Adwaita:dark
 # export ADW_DISABLE_PORTAL=1
+export PATH="$PATH:/home/kenneth/.dotnet/tools"
 
 bindkey -s ^f "tmux-sessionizer\n"
 bindkey -s ^t "taskwarrior-tui\n"
