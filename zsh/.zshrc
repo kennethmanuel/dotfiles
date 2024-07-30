@@ -43,11 +43,8 @@ export MANPAGER='nvim +Man!'
 export VISUAL=nvim
 export FZF_DEFAULT_OPTS=" \
 --height 50% --border --reverse"
-# export QT_AUTO_SCREEN_SCALE_FACTOR=1
-# export QT_ENABLE_HIGHDPI_SCALING=1
-# export GTK_THEME=Adwaita:dark
-# export ADW_DISABLE_PORTAL=1
 export PATH="$PATH:/home/kenneth/.dotnet/tools"
+export DOTNET_CLI_TELEMETRY_OPTOUT=1
 
 bindkey -s ^f "tmux-sessionizer\n"
 bindkey -s ^t "taskwarrior-tui\n"

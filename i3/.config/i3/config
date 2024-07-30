@@ -1,5 +1,9 @@
 # Startup Apps
 
+# # Gnome Keyring (Used by some apps like vscode)
+exec dbus-update-activation-environment --all
+exec gnome-keyring-daemon --start --components=secrets
+
 # Applets
 exec --no-startup-id pasystray
 exec --no-startup-id nitrogen --restore
@@ -7,7 +11,7 @@ exec --no-startup-id nm-applet
 exec --no-startup-id polychromatic-tray-applet
 
 exec --no-startup-id spotify
-exec --no-startup-id steam
+# exec --no-startup-id steam
 exec --no-startup-id discord
 exec --no-startup-id picom -b
 exec --no-startup-id obsidian

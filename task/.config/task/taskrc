@@ -68,6 +68,3 @@ context.orientasi.write=proj:orientasi
 context.rust.read=proj:rust
 context.rust.write=proj:rust
 
-sync.encryption_secret=bodyflicker
-sync.server.origin=http:\/\/192.168.122.137:8080
-sync.server.client_id=42660522-5458-4c52-b517-ca8ff6a0b343
