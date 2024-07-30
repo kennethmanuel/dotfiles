@@ -19,7 +19,6 @@ alias ll='ls -al --color=never'
 alias grep='grep --color=auto'
 alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'
 alias sudo='sudo '
-alias code='vscodium'
 alias lg='lazygit'
 alias fly='/home/kenneth/.fly/bin/flyctl'
 alias timews='timew summary'
@@ -32,11 +31,11 @@ alias notes='cd /mnt/d/notes'
 alias timews='timew summary'
 alias ls='ls --color=never'
 alias fdfind='fd'
+alias cat='batcat'
 
 csh() {
     curl "cheat.sh/$1"
 }
-
 
 export PATH=$PATH:~/.config/tmux/bin
 export PATH=$PATH:~/.local/bin
