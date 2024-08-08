@@ -3,9 +3,9 @@ project_directories=(
   ~/projects/work
   ~/projects/personal
   ~/projects/github
-  ~/vaults
-  /mnt/d/projects/github/
-  /mnt/d/projects/personal/
+  ~/Vaults
+  # /mnt/d/projects/github/
+  # /mnt/d/projects/personal/
 )
 
 other_directories=(

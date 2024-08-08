@@ -20,11 +20,11 @@ return {
     workspaces = {
       {
         name = "personal",
-        path = "~/vaults/notes",
+        path = "~/Vaults/notes",
       },
       {
         name = "work",
-        path = "~/vaults/sp-notes",
+        path = "~/Vaults/sp-notes",
       },
     },
 
