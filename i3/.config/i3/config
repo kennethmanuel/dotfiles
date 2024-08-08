@@ -124,8 +124,8 @@ bindsym $mod+Shift+4 move container to workspace number $ws4
 bindsym $mod+Shift+5 move container to workspace number $ws5
 bindsym $mod+Shift+6 move container to workspace number $ws2
 bindsym $mod+Shift+7 move container to workspace number $ws3
-bindsym $mod+Shift+8 move container to workspace number $ws4
-bindsym $mod+Shift+9 move container to workspace number $ws5
+bindsym $mod+Shift+8 move container to workspace number $ws8
+bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 bindsym $mod+Shift+z move container to workspace $wsz
 bindsym $mod+Shift+x move container to workspace $wsx
@@ -154,12 +154,12 @@ bindsym $mod+r mode "resize"
 # bindsym $amod+p exec --no-startup-id playerctl -p spotify previous
 
 # Workspace Binding
-assign [class="obsidian"] $wsz
+assign [class="obsidian"] $wsg
 assign [class="calibre"] $wsz
 assign [class="discord"] $wsx
-assign [class="steam"] $wsg
-assign [class="dota2"] $wsg
-assign [class="osu!"] $wsg
+assign [class="steam"] $wsz
+assign [class="dota2"] $wsz
+assign [class="osu!"] $wsz
 assign [class="Spotify"] $wsc
 assign [class="Rhythmbox"] $wsc
 assign [class="amberol"] $wsc
