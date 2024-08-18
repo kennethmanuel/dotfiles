@@ -7,23 +7,27 @@ if [[ -f ~/.tw_started_id ]]; then
   if [[ -z "$(cat ~/.tw_started_id)" ]]; then
     # there is no started taskin ~/.tw_started_id
 
-    started_task_count=$(task +ACTIVE count)
+    started_task_count=$(task rc.verbose: rc.context: +ACTIVE count)
 
     # make sure there is actually no started task in case ~/.tw_started_id is deleted / just newly created
     if ((started_task_count > 0)); then
-      started_task_uuid=$(task _get $(task +ACTIVE limit:1 | awk 'NR==4{print $1}').uuid)
+
+      started_task_uuid=$(task +ACTIVE rc.context: rc.verbose: rc.report.next.columns:uuid rc.report.next.labels:1 limit:1 next)
+
+      # echo "alkdfjklafj"
       printf "$started_task_uuid" >~/.tw_started_id
     fi
 
     # check if there is pending task left
-    pending_task_count=$(task status:pending count)
+    pending_task_count=$(task rc.verbose: status:pending count)
 
     if ((pending_task_count == 0)); then
-      printf "There is pending task."
+      echo "There is no pending task."
     else
-      next_urgent_task_uuid=$(task _get $(task limit:1 | awk 'NR==4{print $1}').uuid)
-      next_urgent_task_description=$(task _get "$next_urgent_task_uuid".description)
-      printf "Next task: "$next_urgent_task_description""
+      # WARNING: problem here try to not use awk
+      #
+      next_urgent_task_description=$(task rc.verbose: rc.report.next.columns:description rc.report.next.labels:1 limit:1 next)
+      echo "Next task: "$next_urgent_task_description""
     fi
 
   else
