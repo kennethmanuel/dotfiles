@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# Stops all previously active tasks on "task FILTER start"
+#
+# Only pending tasks are checked/stopped.  If you really want to stop
+# started tasks that are completed/deleted, remove the status:pending
+# filter.  Note that this will decrease performance, and should not
+# be necessary.
+
+tw_command=""
+for i in "$@"; do
+ if [ "${i:0:8}" == "command:" ]; then
+   tw_command="${i:8}"
+   break
+ fi
+done
+
+if [ "$tw_command" == "start" ]; then
+ for t in $(task status:pending +ACTIVE _uuids); do
+   task $t stop
+ done
+fi

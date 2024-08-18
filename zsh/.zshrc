@@ -31,7 +31,7 @@ alias notes='cd /mnt/d/notes'
 alias timews='timew summary'
 alias ls='ls --color=never'
 alias fdfind='fd'
-alias cat='batcat'
+# alias cat='batcat'
 
 csh() {
     curl "cheat.sh/$1"

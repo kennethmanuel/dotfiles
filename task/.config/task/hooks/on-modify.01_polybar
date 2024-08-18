@@ -20,7 +20,7 @@ def main(old, new):
     # Started task.
     if 'start' in new and 'start' not in old:
         task_uuid = extract_uuid_from(new)
-        # output_file_path = "/tmp/tw_polybar_id"
+        # output_file_path = "/tmp/tw_polybar_ide
         output_file_path = "~/.tw_started_id"
         command = f"echo {task_uuid} > {output_file_path}"
         subprocess.call(command, shell=True)

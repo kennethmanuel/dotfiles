@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# determine if there is started task
+if [[ -n "$(cat ~/.tw_started_id)" ]]; then
+
+  started_task_uuid=$(cat ~/.tw_started_id)
+  task $started_task_uuid done
+
+else
+
+  echo "There is no task to be marked as done"
+
+fi

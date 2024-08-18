@@ -1,7 +1,7 @@
 # vim:ft=taskrc
 # include ~/.config/task/themes/catppuccin.theme
 include ~/.config/task/themes/dark-16.theme
-news.version=2.6.0
+news.version=3.1.0
 
 data.location=~/.local/share/task
 hooks.location=~/.config/task/hooks
