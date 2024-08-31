@@ -1,11 +1,9 @@
 #!/usr/bin/env bash
 project_directories=(
-  ~/projects/work
-  ~/projects/personal
-  ~/projects/github
+  ~/Projects/work
+  ~/Projects/personal
+  ~/Projects/github
   ~/Vaults
-  # /mnt/d/projects/github/
-  # /mnt/d/projects/personal/
 )
 
 other_directories=(

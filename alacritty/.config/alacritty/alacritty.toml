@@ -10,7 +10,7 @@ size = 11.0
 family = "Noto Sans Mono"
 
 [window]
-opacity = 0.8
+opacity = 1.0
 
 [window.padding]
 x = 5
