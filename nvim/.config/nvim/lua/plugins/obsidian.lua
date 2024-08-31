@@ -22,6 +22,10 @@ return {
         name = "work",
         path = "~/Vaults/sp-notes",
       },
+      {
+        name = "personal",
+        path = "~/Vaults/notes",
+      },
     },
 
     -- see below for full list of options 👇
@@ -77,11 +81,11 @@ return {
   },
 
   keys = {
-    { "<leader>nt", "<cmd>ObsidianToday<cr>", desc = "Open today's Daily Note" },
-    { "<leader>ny", "<cmd>ObsidianYesterday<cr>", desc = "Open yesterday's Daily Note" },
-    { "<leader>nn", "<cmd>ObsidianNewFromTemplate<cr>", desc = "Create new note (choose from template)" },
-    { "<leader>ns", "<cmd>ObsidianSearch<cr>", desc = "Search note or create" },
+    { "<leader>ndt", "<cmd>ObsidianToday<cr>", desc = "Open today's Daily Note" },
+    { "<leader>ndp", "<cmd>ObsidianYesterday<cr>", desc = "Open yesterday's Daily Note" },
+    { "<leader>nn", "<cmd>ObsidianNew<cr>", desc = "Create new note" },
+    { "<leader>nt", "<cmd>ObsidianNewFromTemplate<cr>", desc = "Create new note (choose from template)" },
+    { "<leader>ns", "<cmd>ObsidianSearch<cr>", desc = "Search note" },
     { "<leader>nr", "<cmd>ObsidianRename<cr>", desc = "Rename note" },
-    -- { "<leader>ns", "<cmd>ObsidianTags<cr>", desc = "Search note by tag" },
   },
 }
