@@ -1,5 +1,0 @@
-# Dotfiles
-
-```sh
-stow */
-```
