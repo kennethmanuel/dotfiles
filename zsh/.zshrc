@@ -32,6 +32,7 @@ alias timews='timew summary'
 alias ls='ls --color=never'
 alias fdfind='fd'
 # alias cat='batcat'
+alias ytdlmp3='yt-dlp --extract-audio --audio-format mp3 --audio-quality 0'
 
 csh() {
     curl "cheat.sh/$1"
