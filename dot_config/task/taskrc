@@ -1,0 +1,62 @@
+# vim:ft=taskrc
+# include ~/.config/task/themes/catppuccin.theme
+include ~/.config/task/themes/dark-16.theme
+news.version=3.1.0
+data.location=~/.local/share/task
+hooks.location=~/.config/task/hooks
+editor=nvim
+default.project=inbox
+
+uda.taskwarrior-tui.task-report.next.filter=status:pending -WAITING limit:25
+
+uda.taskwarrior-tui.keyconfig.quit=q
+uda.taskwarrior-tui.keyconfig.refresh=r
+uda.taskwarrior-tui.keyconfig.go-to-bottom=G
+uda.taskwarrior-tui.keyconfig.go-to-top=g
+uda.taskwarrior-tui.keyconfig.down=j
+uda.taskwarrior-tui.keyconfig.up=k
+uda.taskwarrior-tui.keyconfig.page-down=J
+uda.taskwarrior-tui.keyconfig.page-up=K
+uda.taskwarrior-tui.keyconfig.delete=x
+uda.taskwarrior-tui.keyconfig.done=d
+uda.taskwarrior-tui.keyconfig.start-stop=s
+uda.taskwarrior-tui.keyconfig.quick-tag=t
+uda.taskwarrior-tui.keyconfig.undo=u
+# uda.taskwarrior-tui.keyconfig.edit=e
+uda.taskwarrior-tui.keyconfig.modify=m
+uda.taskwarrior-tui.keyconfig.shell=!
+uda.taskwarrior-tui.keyconfig.log=l
+uda.taskwarrior-tui.keyconfig.add=a
+uda.taskwarrior-tui.keyconfig.annotate=A
+uda.taskwarrior-tui.keyconfig.zoom=z
+uda.taskwarrior-tui.keyconfig.context-menu=c
+uda.taskwarrior-tui.keyconfig.next-tab=]
+uda.taskwarrior-tui.keyconfig.previous-tab=[
+
+uda.taskwarrior-tui.task-report.show-info=false
+uda.taskwarrior-tui.task-report.prompt-on-delete=true
+uda.taskwarrior-tui.task-report.prompt-on-done=true
+uda.taskwarrior-tui.quick-tag.name=next
+
+# Default value (can check with `task show`)
+urgency.active.coefficient=100.0 # Started should be in top
+urgency.user.tag.next.coefficient=15.0 # +next tag
+urgency.due.coefficient=12.0 # overdue or near due date
+urgency.blocking.coefficient=8.0 # blocking other tasks
+urgency.uda.priority.H.coefficient=10.0 # high Priority
+urgency.uda.priority.M.coefficient=3.9 # medium Priority
+urgency.uda.priority.L.coefficient=-2.0 # low Priority
+urgency.scheduled.coefficient=5.0 # scheduled tasks
+urgency.age.coefficient=2.0 # coefficient for age
+urgency.annotations.coefficient=0.0
+urgency.tags.coefficient=0.0 # has tags
+urgency.project.coefficient=0.0
+urgency.waiting.coefficient=-3.0 # waiting task
+urgency.blocked.coefficient=-5.0 # blocked by other tasks
+# Custom tag
+urgency.user.tag.work.coefficient=7.0
+urgency.user.tag.config.coefficient=-1.0
+
+context.work.read=+work
+context.work.write=+work
+context.personal.read=-work
