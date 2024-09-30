@@ -30,7 +30,7 @@ alias notes='cd /mnt/d/notes'
 alias timews='timew summary'
 alias ls='ls --color=never'
 
-ytdlmp3() {
+yt-dlp-mp3() {
     yt-dlp --extract-audio --audio-format mp3 --audio-quality 0 "$1"
 }
 
