@@ -1,0 +1,7 @@
+README.md
+
+{{- if ne .chezmoi.hostname "d-kenneth" }}
+.config/alacritty/
+.config/btop/
+.config/i3/
+{{- end }}
