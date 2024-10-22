@@ -29,6 +29,12 @@ alias ta='task add'
 alias notes='cd /mnt/d/notes'
 alias timews='timew summary'
 alias ls='ls --color=never'
+alias vim='nvim'
+
+{{- if eq .chezmoi.hostname "KDITDKENNETH" }}
+alias python='python3'
+{{- end }}
+
 
 yt-dlp-mp3() {
     yt-dlp --extract-audio --audio-format mp3 --audio-quality 0 "$1"
