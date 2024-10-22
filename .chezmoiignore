@@ -5,3 +5,4 @@ README.md
 .config/btop/
 .config/i3/
 {{- end }}
+keyd
