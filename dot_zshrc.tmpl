@@ -14,12 +14,12 @@ compinit
 # Aliases
 alias o='xdg-open'
 alias ls='ls --color=auto'
-alias la='ls -a --color=never'
-alias ll='ls -al --color=never'
+alias la='ls -a'
+alias ll='ls -al'
 alias grep='grep --color=auto'
 alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'
 alias sudo='sudo '
-alias lg='lazygit'
+alias lzg='lazygit'
 alias fly='/home/kenneth/.fly/bin/flyctl'
 alias timews='timew summary'
 alias windir='cd /mnt/c/Users/kenneth.lieyanto'
@@ -29,8 +29,14 @@ alias ta='task add'
 alias notes='cd /mnt/d/notes'
 alias timews='timew summary'
 alias ls='ls --color=never'
-alias vim='nvim'
 alias lzd='lazydocker'
+
+alias gst="git status"
+alias gc="git commit"
+alias co="git checkout"
+alias gaa="git add -A"
+alias gd="git diff"
+alias gdc="git diff -cached"
 
 {{- if eq .chezmoi.hostname "KDITDKENNETH" }}
 alias python='python3'
@@ -53,11 +59,15 @@ export FZF_DEFAULT_OPTS=" \
 --height 50% --border --reverse"
 export PATH="$PATH:/home/kenneth/.dotnet/tools"
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
+export PATH="$PATH:/opt/JetBrains Rider-2024.2.7/bin"
+export PATH="$PATH:/home/kenneth/.spicetify"
 
 bindkey -s ^f "tmux-sessionizer\n"
 bindkey -s ^t "taskwarrior-tui\n"
 
 eval "$(starship init zsh)"
+
+source ~/.env
 
 # fnm
 FNM_PATH="/home/kenneth/.local/share/fnm"
