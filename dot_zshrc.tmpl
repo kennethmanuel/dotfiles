@@ -38,6 +38,11 @@ alias gaa="git add -A"
 alias gd="git diff"
 alias gdc="git diff -cached"
 
+alias chzedit="chezmoi edit --apply"
+
+alias dwr="dotnet watch run"
+alias dr="dotnet run"
+
 {{- if eq .chezmoi.hostname "KDITDKENNETH" }}
 alias python='python3'
 {{- end }}
@@ -60,12 +65,14 @@ export FZF_DEFAULT_OPTS=" \
 export PATH="$PATH:/home/kenneth/.dotnet/tools"
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
 export PATH="$PATH:/opt/JetBrains Rider-2024.2.7/bin"
+export PATH="$PATH:/opt/azuredatastudio-linux-x64/bin"
 export PATH="$PATH:/home/kenneth/.spicetify"
 
 bindkey -s ^f "tmux-sessionizer\n"
 bindkey -s ^t "taskwarrior-tui\n"
 
 eval "$(starship init zsh)"
+eval "$(zoxide init zsh)"
 
 source ~/.env
 
