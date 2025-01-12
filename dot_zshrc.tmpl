@@ -20,40 +20,13 @@ alias grep='grep --color=auto'
 alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'
 alias sudo='sudo '
 alias lzg='lazygit'
-alias fly='/home/kenneth/.fly/bin/flyctl'
-alias timews='timew summary'
-alias windir='cd /mnt/c/Users/kenneth.lieyanto'
-alias t='task'
-alias tl='task list'
-alias ta='task add'
-alias notes='cd /mnt/d/notes'
-alias timews='timew summary'
-alias ls='exa'
 alias lzd='lazydocker'
-
-alias gst="git status"
-alias gc="git commit"
-alias co="git checkout"
-alias gaa="git add -A"
-alias gd="git diff"
-alias gdc="git diff -cached"
-
-alias chzedit="chezmoi edit --apply"
-
+alias t='task'
 alias dwr="dotnet watch run"
 alias dr="dotnet run"
 
-{{- if eq .chezmoi.hostname "KDITDKENNETH" }}
-alias python='python3'
-{{- end }}
-
-
-yt-dlp-mp3() {
+ytdlpmp3() {
     yt-dlp --extract-audio --audio-format mp3 --audio-quality 0 "$1"
-}
-
-csh() {
-    curl "cheat.sh/$1"
 }
 
 export PATH=$PATH:~/.local/bin
@@ -74,13 +47,3 @@ bindkey -s ^t "taskwarrior-tui\n"
 
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
-
-source ~/.env
-
-# fnm
-FNM_PATH="/home/kenneth/.local/share/fnm"
-if [ -d "$FNM_PATH" ]; then
-  export PATH="/home/kenneth/.local/share/fnm:$PATH"
-  eval "`fnm env`"
-fi
-
