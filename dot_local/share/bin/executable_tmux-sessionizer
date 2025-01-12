@@ -10,13 +10,6 @@ project_directories=(
 other_directories=(
   ~/.config/nvim
   ~/.local/share/chezmoi
-{{- if eq .chezmoi.hostname "KDITDKENNETH" }}
-  /mnt/c/Users/kenneth.lieyanto/Projects/work
-  /mnt/c/Users/kenneth.lieyanto/Projects/personal
-  /mnt/c/Users/kenneth.lieyanto/Projects/github
-  /mnt/c/Users/kenneth.lieyanto/Documents
-  /mnt/c/Users/kenneth.lieyanto/Downloads
-{{- end }}
 )
 
 if [[ $# -eq 1 ]]; then
