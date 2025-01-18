@@ -29,19 +29,6 @@ ytdlpmp3() {
     yt-dlp --extract-audio --audio-format mp3 --audio-quality 0 "$1"
 }
 
-export PATH=$PATH:~/.local/bin
-export PATH=$PATH:~/bin
-export MANPAGER='nvim +Man!'
-export VISUAL=nvim
-export FZF_DEFAULT_OPTS=" \
---height 50% --border --reverse"
-export PATH="$PATH:/home/kenneth/.dotnet/tools"
-export DOTNET_CLI_TELEMETRY_OPTOUT=1
-export PATH="$PATH:/opt/JetBrains Rider-2024.2.7/bin"
-export PATH="$PATH:/opt/azuredatastudio-linux-x64/bin"
-export PATH="$PATH:/home/kenneth/.spicetify"
-export PATH="$PATH:/opt/android-studio/bin"
-
 bindkey -s ^f "tmux-sessionizer\n"
 
 eval "$(starship init zsh)"
