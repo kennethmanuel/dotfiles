@@ -11,6 +11,10 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
+if [[ -f ~/.profile ]]; then
+    source ~/.profile
+fi
+
 # Aliases
 alias o='xdg-open'
 alias ls='ls --color=auto'
