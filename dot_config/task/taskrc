@@ -1,5 +1,3 @@
-# vim:ft=taskrc
-#
 data.location=~/.local/share/task
 hooks.location=~/.config/task/hooks
 editor=nvim
@@ -11,3 +9,5 @@ context.work.write=+work
 context.homeserver.read=+homeserver
 context.homeserver.write=+homeserver
 news.version=3.3.0
+context.note.read=+note
+context.note.write=+note
