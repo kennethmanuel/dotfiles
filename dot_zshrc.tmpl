@@ -16,18 +16,9 @@ if [[ -f ~/.profile ]]; then
 fi
 
 # Aliases
-alias o='xdg-open'
-alias ls='ls --color=auto'
-alias la='ls -a'
-alias ll='ls -al'
-alias grep='grep --color=auto'
-alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'
-alias sudo='sudo '
-alias lzg='lazygit'
-alias lzd='lazydocker'
-alias t='task'
-alias dwr="dotnet watch run"
-alias dr="dotnet run"
+if [ -f ~/.shell_aliases ]; then
+  . ~/.shell_aliases
+fi
 
 ytdlpmp3() {
     yt-dlp --extract-audio --audio-format mp3 --audio-quality 0 "$1"
