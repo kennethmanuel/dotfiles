@@ -1,7 +1,7 @@
 {{- if or (eq .chezmoi.hostname "kditdkenneth") (eq .chezmoi.hostname "dlinken") }}
 data.location=~/.local/share/task
 {{- else if eq .chezmoi.hostname "localhost" }}
-data.location="~/storage/emulated/0/Taskwarrior Data"
+data.location="~/storage/shared/Taskwarrior Data"
 {{- end }}
 hooks.location=~/.config/task/hooks
 editor=nvim

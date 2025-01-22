@@ -17,3 +17,4 @@ export PATH="$PATH:/opt/android-studio/bin"
 export PATH="$PATH:~/.local/share/bin"
 export PATH=$PATH:$HOME/go/bin
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
+export TASKDATA="~/storage/shared/Taskwarrior Data"
