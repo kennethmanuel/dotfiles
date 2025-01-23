@@ -20,4 +20,6 @@ export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml
 
 {{- if eq .chezmoi.hostname "localhost" }}
 export TASKDATA="$HOME/storage/shared/Taskwarrior Data"
+{{- else }}
+export TASKDATA="$HOME/.local/share/task"
 {{- end }}
