@@ -6,3 +6,4 @@ README.md
 .config/i3/
 {{- end }}
 keyd
+gnome-keybindings
