@@ -7,6 +7,7 @@ default.project=inbox
 news.version=3.3.0
 
 urgency.uda.priority.L.coefficient=-1.0
+urgency.user.tag.config.coefficient=-1.0
 
 context.homeserver.read=+homeserver
 context.homeserver.write=+homeserver
