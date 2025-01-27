@@ -10,6 +10,14 @@ export DOTNET_CLI_TELEMETRY_OPTOUT=1
 
 export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml
 
+export TASKRC="$HOME/.config/task/taskrc"
+
+{{- if eq .chezmoi.hostname "localhost" }}
+export TASKDATA="$HOME/storage/shared/Taskwarrior Data"
+{{- else }}
+export TASKDATA="$HOME/.local/share/task"
+{{- end }}
+
 export PATH=$PATH:$HOME/.local/bin
 export PATH=$PATH:$HOME/bin
 export PATH="$PATH:$HOME/.dotnet/tools"
@@ -22,9 +30,3 @@ export PATH="$PATH:$HOME/go/bin"
 export PATH="$PATH:/opt/WebStorm-243.23654.120/bin"
 export PATH="$PATH:/opt/nvim-linux64/bin"
 export PATH="$PATH:/home/kenneth/Projects/personal/bootdev-linux/worldbanc/private/bin"
-
-{{- if eq .chezmoi.hostname "localhost" }}
-export TASKDATA="$HOME/storage/shared/Taskwarrior Data"
-{{- else }}
-export TASKDATA="$HOME/.local/share/task"
-{{- end }}
