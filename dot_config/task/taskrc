@@ -17,3 +17,9 @@ context.work.write=+work
 
 context.note.read=+note
 context.note.write=+note
+context.personalweb.read=+personalweb
+context.personalweb.write=+personalweb
+context.personal.read=proj:inbox
+context.personal.write=proj:inbox
+context.grocery.read=proj:grocery
+context.grocery.write=proj:grocery
