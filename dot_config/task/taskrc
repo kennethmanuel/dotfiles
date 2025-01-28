@@ -7,20 +7,32 @@ default.project=inbox
 verbose=affected,blank,context,edit,header,footnote,label,new-id,project,special,sync,recur 
 
 report.next.filter=status:pending -WAITING limit:25
+
 urgency.uda.priority.L.coefficient=-1.0
 urgency.user.tag.config.coefficient=-1.0
+urgency.user.tag.scholarship.coefficient=2.0
 
 context.homeserver.read=+homeserver
 context.homeserver.write=+homeserver
 
-context.work.read=+work
-context.work.write=+work
+context.work.read=proj:work
+context.work.write=proj:work
 
 context.note.read=+note
 context.note.write=+note
+
 context.personalweb.read=+personalweb
 context.personalweb.write=+personalweb
+
 context.personal.read=proj:inbox
 context.personal.write=proj:inbox
+
 context.grocery.read=proj:grocery
 context.grocery.write=proj:grocery
+
+context.scholarship.read=+scholarship 
+context.scholarship.write=+scholarship due:2025-04-30T23:59
+
+
+
+context=personal
