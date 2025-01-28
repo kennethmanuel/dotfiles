@@ -4,7 +4,7 @@ editor=nvim
 
 default.project=inbox
 
-news.version=3.3.0
+verbose=affected,blank,context,edit,header,footnote,label,new-id,project,special,sync,recur 
 
 urgency.uda.priority.L.coefficient=-1.0
 urgency.user.tag.config.coefficient=-1.0
