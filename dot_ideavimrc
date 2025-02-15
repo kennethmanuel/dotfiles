@@ -28,6 +28,7 @@ map <leader>tt <Action>(RiderUnitTestQuickListPopupAction)
 
 map <leader>wt <Action>(ActivateUnitTestsToolWindow)
 map <leader>we <Action>(ActivateProjectToolWindow)
+map <leader>ws <Action>(ActivateStructureToolWindow)
 
 map <leader>ss <Action>(GotoSymbol)
 map <leader>sf <Action>(GotoFile)
