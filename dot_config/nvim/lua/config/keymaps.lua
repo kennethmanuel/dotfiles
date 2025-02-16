@@ -27,6 +27,24 @@ if vim.g.vscode then
     vim.keymap.set("n", "<leader>3", "<Cmd>lua require('vscode').call('vscode-harpoon.gotoEditor3')<CR>")
     vim.keymap.set("n", "<leader>4", "<Cmd>lua require('vscode').call('vscode-harpoon.gotoEditor4')<CR>")
     vim.keymap.set("n", "<leader>5", "<Cmd>lua require('vscode').call('vscode-harpoon.gotoEditor5')<CR>")
-    vim.keymap.set("n", "<leader>h", "<Cmd>lua require('vscode').call('vscode-harpoon.editEditors')<CR>")
+    vim.keymap.set("n", "<leader>hh", "<Cmd>lua require('vscode').call('vscode-harpoon.editEditors')<CR>")
+
+    vim.keymap.set("n", "<leader>we", "<Cmd>lua require('vscode').call('workbench.view.explorer')<CR>")
+    vim.keymap.set("n", "<leader>wt", "<Cmd>lua require('vscode').call('workbench.view.testing.focus')<CR>")
+    vim.keymap.set(
+        "n",
+        "<leader>wx",
+        "<Cmd>lua require('vscode').call('workbench.extensions.action.focusExtensionsView')<CR>"
+    )
+    vim.keymap.set("n", "<leader>wq", "<Cmd>lua require('vscode').call('workbench.panel.markers.view.focus')<CR>")
+
+    vim.keymap.set("n", "<leader>ta", "<Cmd>lua require('vscode').call('testing.runAll')<CR>")
+    vim.keymap.set("n", "<leader>tf", "<Cmd>lua require('vscode').call('testing.reRunFailTests')<CR>")
+    vim.keymap.set("n", "<leader>tr", "<Cmd>lua require('vscode').call('testing.runAtCursor')<CR>")
+
+    vim.keymap.set("n", "]q", "<Cmd>lua require('vscode').call('editor.action.marker.next')<CR>")
+    vim.keymap.set("n", "[q", "<Cmd>lua require('vscode').call('editor.action.marker.next')<CR>")
+
+    vim.keymap.set("n", "<leader>ss", "<Cmd>lua require('vscode').call('workbench.action.showAllSymbols')<CR>")
 else
 end

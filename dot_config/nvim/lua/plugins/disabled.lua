@@ -1,9 +1,10 @@
 return {
     {
-        "echasnovski/mini.pairs",
+        "akinsho/bufferline.nvim",
+        enabled = false,
     },
     {
-        "akinsho/bufferline.nvim",
+        "folke/flash.nvim",
         enabled = false,
     },
 }

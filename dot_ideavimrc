@@ -24,11 +24,14 @@ Plug 'machakann/vim-highlightedyank'
 " Commentary plugin
 Plug 'tpope/vim-commentary'
 
+map <leader><leader> <Action>(GotoFile)
+
 map <leader>tt <Action>(RiderUnitTestQuickListPopupAction)
 
 map <leader>wt <Action>(ActivateUnitTestsToolWindow)
 map <leader>we <Action>(ActivateProjectToolWindow)
 map <leader>ws <Action>(ActivateStructureToolWindow)
+map <leader>wq <Action>(ActivateProblemsViewToolWindow)
 
 map <leader>ss <Action>(GotoSymbol)
 map <leader>sf <Action>(GotoFile)
@@ -41,3 +44,10 @@ map <leader>2 <Action>(GotoHarpoon2)
 map <leader>3 <Action>(GotoHarpoon3)
 map <leader>4 <Action>(GotoHarpoon4)
 map <leader>5 <Action>(GotoHarpoon5)
+
+map [q <Action>(ReSharperGotoPrevErrorInSolution)
+map ]q <Action>(ReSharperGotoNextErrorInSolution)
+
+map K <Action>(ShowHoverInfo)
+
+map <leader>ca <Action>(ShowIntentionActions)
