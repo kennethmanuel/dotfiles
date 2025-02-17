@@ -27,6 +27,10 @@ Plug 'tpope/vim-commentary'
 map <leader><leader> <Action>(GotoFile)
 
 map <leader>tt <Action>(RiderUnitTestQuickListPopupAction)
+map <leader>tra <Action>(RiderUnitTestRunSolutionAction)
+map <leader>trr <Action>(RiderUnitTestRunContextAction)
+map <leader>trf <Action>(RiderUnitTestSessionRerunFailedTestsAction)
+map <leader>trd <Action>(RiderUnitTestDebugContextAction)
 
 map <leader>wt <Action>(ActivateUnitTestsToolWindow)
 map <leader>we <Action>(ActivateProjectToolWindow)
