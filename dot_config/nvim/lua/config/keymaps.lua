@@ -20,6 +20,8 @@ vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>", { de
 
 vim.keymap.set("i", "<C-c>", "<Esc>")
 
+vim.keymap.set("n", "<C-q>", "<cmd>only<CR>")
+
 if vim.g.vscode then
     vim.keymap.set("n", "<leader>`", "<Cmd>lua require('vscode').call('vscode-harpoon.addEditor')<CR>")
     vim.keymap.set("n", "<leader>1", "<Cmd>lua require('vscode').call('vscode-harpoon.gotoEditor1')<CR>")
