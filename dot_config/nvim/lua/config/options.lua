@@ -6,3 +6,5 @@ vim.opt.clipboard = ""
 -- vim.opt.conceallevel = 2
 vim.opt.colorcolumn = "80"
 vim.opt.tabstop = 4
+
+vim.g.snacks_animate = false
