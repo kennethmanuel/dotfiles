@@ -19,7 +19,7 @@ return {
             },
             {
                 name = "work",
-                path = "~/Vaults/sp-notes",
+                path = "~/Vaults/sp",
             },
         },
 
