@@ -12,6 +12,8 @@ export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml
 
 export TASKRC="$HOME/.config/task/taskrc"
 
+export CAPACITOR_ANDROID_STUDIO_PATH=/opt/android-studio/bin/studio
+
 {{- if eq .chezmoi.hostname "localhost" }}
 export TASKDATA="$HOME/storage/shared/Taskwarrior Data"
 {{- else }}
