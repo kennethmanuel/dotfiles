@@ -1,0 +1,8 @@
+packages:
+  fedora:
+    dnf:
+      - "git"
+      - "neovim"
+      - "fzf"
+      - "tmux"
+      - "ripgrep"

@@ -1,0 +1,9 @@
+{{ if eq .chezmoi.os "linux" -}}
+#!/bin/bash
+
+# Install DNF packages
+{{ range .packages.fedora.dnf -}}
+sudo dnf install -y {{ . | quote }}
+{{ end -}}
+
+{{ end -}}
