@@ -26,7 +26,10 @@ ytdlpmp3() {
 
 bindkey -s ^f "tmux-sessionizer\n"
 
-eval "$(starship init zsh)"
+if command -v starship &> /dev/null; then
+    eval "$(starship init zsh)"
+fi
+
 eval "$(zoxide init zsh)"
 
 # The next line updates PATH for the Google Cloud SDK.
