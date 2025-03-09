@@ -8,3 +8,4 @@ packages:
       - "ripgrep"
       - "btop"
       - "zoxide"
+      - "zsh"
