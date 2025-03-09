@@ -7,3 +7,4 @@ packages:
       - "tmux"
       - "ripgrep"
       - "btop"
+      - "zoxide"
